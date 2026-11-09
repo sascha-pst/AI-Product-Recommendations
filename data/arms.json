@@ -1,0 +1,16 @@
+{
+  "arms": {
+    "1": {"content": "H", "label": "human"},
+    "2": {"content": "H", "label": "ai"},
+    "3": {"content": "A", "label": "human"},
+    "4": {"content": "A", "label": "ai"},
+    "5": {"content": "HY", "label": "both"},
+    "6": {"content": "balanced", "label": "none"}
+  },
+  "labels": {
+    "human": "From customer reviews",
+    "ai": "From an AI reviewer",
+    "both": "From customer reviews and an AI reviewer",
+    "none": null
+  }
+}

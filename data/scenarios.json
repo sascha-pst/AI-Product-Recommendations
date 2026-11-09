@@ -1,0 +1,27 @@
+{
+  "scenarios": [
+    {
+      "id": "commute",
+      "title": "Daily commute",
+      "brief": "You ride a loud train 45 minutes each way and want earbuds that block noise and last the whole trip. Your budget is $150.",
+      "budget_usd": 150,
+      "min_anc_level": 1,
+      "needs": {"noise_cancelling": 0.4, "battery": 0.25, "sound": 0.2, "comfort": 0.15}
+    },
+    {
+      "id": "gym",
+      "title": "Workouts",
+      "brief": "You lift and run four times a week and need earbuds that stay put and survive sweat. Your budget is $100.",
+      "budget_usd": 100,
+      "needs": {"fit_security": 0.35, "durability": 0.3, "sound": 0.2, "battery": 0.15}
+    },
+    {
+      "id": "calls",
+      "title": "Work calls",
+      "brief": "You take video calls most of the day and switch between laptop and phone. You want clear calls and all-day comfort. Your budget is $200.",
+      "budget_usd": 200,
+      "needs": {"call_quality": 0.4, "comfort": 0.3, "battery": 0.15, "sound": 0.15},
+      "bonus_spec": "multipoint"
+    }
+  ]
+}

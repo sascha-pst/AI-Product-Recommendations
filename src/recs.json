@@ -1,0 +1,755 @@
+{
+ "sample_data": true,
+ "category": "Wireless earbuds",
+ "generated_at": "2026-11-09T14:55:26Z",
+ "engine_a": {
+  "mode": "rubric"
+ },
+ "arms": {
+  "arms": {
+   "1": {
+    "content": "H",
+    "label": "human"
+   },
+   "2": {
+    "content": "H",
+    "label": "ai"
+   },
+   "3": {
+    "content": "A",
+    "label": "human"
+   },
+   "4": {
+    "content": "A",
+    "label": "ai"
+   },
+   "5": {
+    "content": "HY",
+    "label": "both"
+   },
+   "6": {
+    "content": "balanced",
+    "label": "none"
+   }
+  },
+  "labels": {
+   "human": "From customer reviews",
+   "ai": "From an AI reviewer",
+   "both": "From customer reviews and an AI reviewer",
+   "none": null
+  }
+ },
+ "scenarios": {
+  "commute": {
+   "title": "Daily commute",
+   "brief": "You ride a loud train 45 minutes each way and want earbuds that block noise and last the whole trip. Your budget is $150.",
+   "budget_usd": 150,
+   "engines": {
+    "H": [
+     {
+      "product_id": "p15",
+      "rank": 1,
+      "match_score": 98,
+      "rationale": "Rich, balanced sound and strong noise cancelling make it a strong match for a loud commute. It runs 5 hours per charge (28 with the case) and costs $82, within your $150 budget. Watch for: comfort can fade over long sessions."
+     },
+     {
+      "product_id": "p21",
+      "rank": 2,
+      "match_score": 94,
+      "rationale": "Rich, balanced sound and all-day comfort make it a strong match for a loud commute. It runs 6 hours per charge (24 with the case) and costs $69, within your $150 budget. Watch for: noise cancelling underwhelms."
+     },
+     {
+      "product_id": "p22",
+      "rank": 3,
+      "match_score": 88,
+      "rationale": "Strong noise cancelling and long battery life make it a strong match for a loud commute. It runs 8 hours per charge (28 with the case) and costs $95, within your $150 budget. Watch for: comfort can fade over long sessions."
+     }
+    ],
+    "A": [
+     {
+      "product_id": "p09",
+      "rank": 1,
+      "match_score": 98,
+      "rationale": "All-day comfort and long battery life make it a strong match for a loud commute. It runs 10 hours per charge (20 with the case) and costs $147, within your $150 budget. Watch for: noise cancelling underwhelms."
+     },
+     {
+      "product_id": "p28",
+      "rank": 2,
+      "match_score": 94,
+      "rationale": "Long battery life and strong noise cancelling make it a strong match for a loud commute. It runs 12 hours per charge (24 with the case) and costs $86, within your $150 budget. Watch for: comfort can fade over long sessions."
+     },
+     {
+      "product_id": "p22",
+      "rank": 3,
+      "match_score": 87,
+      "rationale": "Rich, balanced sound and strong noise cancelling make it a strong match for a loud commute. It runs 8 hours per charge (28 with the case) and costs $95, within your $150 budget. Watch for: battery life is on the short side."
+     }
+    ],
+    "HY": [
+     {
+      "product_id": "p22",
+      "rank": 1,
+      "match_score": 98,
+      "rationale": "Strong noise cancelling and rich, balanced sound make it a strong match for a loud commute. It runs 8 hours per charge (28 with the case) and costs $95, within your $150 budget. Watch for: comfort can fade over long sessions."
+     },
+     {
+      "product_id": "p09",
+      "rank": 2,
+      "match_score": 96,
+      "rationale": "Long battery life and all-day comfort make it a strong match for a loud commute. It runs 10 hours per charge (20 with the case) and costs $147, within your $150 budget. Watch for: noise cancelling underwhelms."
+     },
+     {
+      "product_id": "p21",
+      "rank": 3,
+      "match_score": 93,
+      "rationale": "Rich, balanced sound and all-day comfort make it a strong match for a loud commute. It runs 6 hours per charge (24 with the case) and costs $69, within your $150 budget. Watch for: noise cancelling underwhelms."
+     }
+    ]
+   },
+   "all_in_budget": [
+    "p21",
+    "p04",
+    "p24",
+    "p20",
+    "p15",
+    "p28",
+    "p22",
+    "p17",
+    "p11",
+    "p16",
+    "p09"
+   ]
+  },
+  "gym": {
+   "title": "Workouts",
+   "brief": "You lift and run four times a week and need earbuds that stay put and survive sweat. Your budget is $100.",
+   "budget_usd": 100,
+   "engines": {
+    "H": [
+     {
+      "product_id": "p07",
+      "rank": 1,
+      "match_score": 98,
+      "rationale": "Long battery life and a secure fit make it a strong match for workouts. It runs 7 hours per charge (30 with the case) and costs $54, within your $100 budget. Watch for: durability is a question mark."
+     },
+     {
+      "product_id": "p13",
+      "rank": 2,
+      "match_score": 89,
+      "rationale": "A sturdy, sweat-resistant build and rich, balanced sound make it a strong match for workouts. It runs 5 hours per charge (24 with the case) and costs $72, within your $100 budget. Watch for: the fit may loosen during movement."
+     },
+     {
+      "product_id": "p21",
+      "rank": 3,
+      "match_score": 88,
+      "rationale": "A sturdy, sweat-resistant build and a secure fit make it a strong match for workouts. It runs 6 hours per charge (24 with the case) and costs $69, within your $100 budget. Watch for: battery life is on the short side."
+     }
+    ],
+    "A": [
+     {
+      "product_id": "p22",
+      "rank": 1,
+      "match_score": 98,
+      "rationale": "A sturdy, sweat-resistant build and a secure fit make it a strong match for workouts. It runs 8 hours per charge (28 with the case) and costs $95, within your $100 budget. Watch for: battery life is on the short side."
+     },
+     {
+      "product_id": "p18",
+      "rank": 2,
+      "match_score": 91,
+      "rationale": "A secure fit and rich, balanced sound make it a strong match for workouts. It runs 10 hours per charge (30 with the case) and costs $46, within your $100 budget. Watch for: durability is a question mark."
+     },
+     {
+      "product_id": "p29",
+      "rank": 3,
+      "match_score": 88,
+      "rationale": "A sturdy, sweat-resistant build and rich, balanced sound make it a strong match for workouts. It runs 10 hours per charge (30 with the case) and costs $58, within your $100 budget. Watch for: the fit may loosen during movement."
+     }
+    ],
+    "HY": [
+     {
+      "product_id": "p29",
+      "rank": 1,
+      "match_score": 98,
+      "rationale": "Long battery life and a sturdy, sweat-resistant build make it a strong match for workouts. It runs 10 hours per charge (30 with the case) and costs $58, within your $100 budget. Watch for: the fit may loosen during movement."
+     },
+     {
+      "product_id": "p18",
+      "rank": 2,
+      "match_score": 95,
+      "rationale": "Long battery life and a secure fit make it a strong match for workouts. It runs 10 hours per charge (30 with the case) and costs $46, within your $100 budget. Watch for: sound is flatter than rivals."
+     },
+     {
+      "product_id": "p22",
+      "rank": 3,
+      "match_score": 94,
+      "rationale": "A secure fit and a sturdy, sweat-resistant build make it a strong match for workouts. It runs 8 hours per charge (28 with the case) and costs $95, within your $100 budget. Watch for: sound is flatter than rivals."
+     }
+    ]
+   },
+   "all_in_budget": [
+    "p31",
+    "p03",
+    "p30",
+    "p18",
+    "p07",
+    "p10",
+    "p29",
+    "p08",
+    "p21",
+    "p04",
+    "p13",
+    "p24",
+    "p05",
+    "p20",
+    "p15",
+    "p28",
+    "p22"
+   ]
+  },
+  "calls": {
+   "title": "Work calls",
+   "brief": "You take video calls most of the day and switch between laptop and phone. You want clear calls and all-day comfort. Your budget is $200.",
+   "budget_usd": 200,
+   "engines": {
+    "H": [
+     {
+      "product_id": "p02",
+      "rank": 1,
+      "match_score": 98,
+      "rationale": "Rich, balanced sound and long battery life make it a strong match for long call days. It runs 9 hours per charge (28 with the case) and costs $160, within your $200 budget. Watch for: call clarity is middling."
+     },
+     {
+      "product_id": "p07",
+      "rank": 2,
+      "match_score": 98,
+      "rationale": "Long battery life and rich, balanced sound make it a strong match for long call days. It runs 7 hours per charge (30 with the case) and costs $54, within your $200 budget. Watch for: comfort can fade over long sessions."
+     },
+     {
+      "product_id": "p29",
+      "rank": 3,
+      "match_score": 91,
+      "rationale": "Long battery life and clear call quality make it a strong match for long call days. It runs 10 hours per charge (30 with the case) and costs $58, within your $200 budget. Watch for: sound is flatter than rivals."
+     }
+    ],
+    "A": [
+     {
+      "product_id": "p18",
+      "rank": 1,
+      "match_score": 98,
+      "rationale": "All-day comfort and long battery life make it a strong match for long call days. It runs 10 hours per charge (30 with the case) and costs $46, within your $200 budget. Watch for: call clarity is middling."
+     },
+     {
+      "product_id": "p05",
+      "rank": 2,
+      "match_score": 92,
+      "rationale": "Clear call quality and all-day comfort make it a strong match for long call days. It runs 8 hours per charge (36 with the case) and costs $77, within your $200 budget. Watch for: battery life is on the short side."
+     },
+     {
+      "product_id": "p30",
+      "rank": 3,
+      "match_score": 92,
+      "rationale": "Clear call quality and long battery life make it a strong match for long call days. It runs 10 hours per charge (40 with the case) and costs $44, within your $200 budget. Watch for: sound is flatter than rivals."
+     }
+    ],
+    "HY": [
+     {
+      "product_id": "p07",
+      "rank": 1,
+      "match_score": 98,
+      "rationale": "Long battery life and clear call quality make it a strong match for long call days. It runs 7 hours per charge (30 with the case) and costs $54, within your $200 budget. Watch for: comfort can fade over long sessions."
+     },
+     {
+      "product_id": "p29",
+      "rank": 2,
+      "match_score": 98,
+      "rationale": "Long battery life and rich, balanced sound make it a strong match for long call days. It runs 10 hours per charge (30 with the case) and costs $58, within your $200 budget. Watch for: call clarity is middling."
+     },
+     {
+      "product_id": "p02",
+      "rank": 3,
+      "match_score": 94,
+      "rationale": "Rich, balanced sound and all-day comfort make it a strong match for long call days. It runs 9 hours per charge (28 with the case) and costs $160, within your $200 budget. Watch for: call clarity is middling."
+     }
+    ]
+   },
+   "all_in_budget": [
+    "p31",
+    "p03",
+    "p30",
+    "p18",
+    "p07",
+    "p10",
+    "p29",
+    "p08",
+    "p21",
+    "p04",
+    "p13",
+    "p24",
+    "p05",
+    "p20",
+    "p15",
+    "p28",
+    "p22",
+    "p17",
+    "p11",
+    "p16",
+    "p09",
+    "p02",
+    "p27",
+    "p06",
+    "p23"
+   ]
+  }
+ },
+ "products": {
+  "p01": {
+   "name": "Aurel Pods 3",
+   "price_usd": 244,
+   "color": "#33658a",
+   "specs": {
+    "Noise cancelling": "Good",
+    "Battery": "6 h (40 h with case)",
+    "Water resistance": "None",
+    "Weight": "6.4 g per bud",
+    "Mics": "3 per bud",
+    "Multipoint": "Yes",
+    "Ear wings": "No"
+   }
+  },
+  "p02": {
+   "name": "Brisa Fit S",
+   "price_usd": 160,
+   "color": "#f26419",
+   "specs": {
+    "Noise cancelling": "Strong",
+    "Battery": "9 h (28 h with case)",
+    "Water resistance": "IPX7",
+    "Weight": "4.7 g per bud",
+    "Mics": "1 per bud",
+    "Multipoint": "Yes",
+    "Ear wings": "Yes"
+   }
+  },
+  "p03": {
+   "name": "Cobalt Sport S",
+   "price_usd": 43,
+   "color": "#7d8691",
+   "specs": {
+    "Noise cancelling": "None",
+    "Battery": "6 h (36 h with case)",
+    "Water resistance": "IPX4",
+    "Weight": "4.7 g per bud",
+    "Mics": "2 per bud",
+    "Multipoint": "No",
+    "Ear wings": "No"
+   }
+  },
+  "p04": {
+   "name": "Dune Buds S",
+   "price_usd": 72,
+   "color": "#86bbd8",
+   "specs": {
+    "Noise cancelling": "Basic",
+    "Battery": "7 h (20 h with case)",
+    "Water resistance": "IPX4",
+    "Weight": "5.5 g per bud",
+    "Mics": "2 per bud",
+    "Multipoint": "Yes",
+    "Ear wings": "No"
+   }
+  },
+  "p05": {
+   "name": "Ember Pro 3",
+   "price_usd": 77,
+   "color": "#7d8691",
+   "specs": {
+    "Noise cancelling": "None",
+    "Battery": "8 h (36 h with case)",
+    "Water resistance": "IPX4",
+    "Weight": "4.9 g per bud",
+    "Mics": "3 per bud",
+    "Multipoint": "No",
+    "Ear wings": "Yes"
+   }
+  },
+  "p06": {
+   "name": "Fjord Studio",
+   "price_usd": 181,
+   "color": "#f26419",
+   "specs": {
+    "Noise cancelling": "Good",
+    "Battery": "5 h (20 h with case)",
+    "Water resistance": "IP55",
+    "Weight": "5.2 g per bud",
+    "Mics": "2 per bud",
+    "Multipoint": "Yes",
+    "Ear wings": "No"
+   }
+  },
+  "p07": {
+   "name": "Gala Air 2",
+   "price_usd": 54,
+   "color": "#8a5a83",
+   "specs": {
+    "Noise cancelling": "None",
+    "Battery": "7 h (30 h with case)",
+    "Water resistance": "IPX4",
+    "Weight": "5.5 g per bud",
+    "Mics": "3 per bud",
+    "Multipoint": "No",
+    "Ear wings": "No"
+   }
+  },
+  "p08": {
+   "name": "Halo Audio Lite 3",
+   "price_usd": 66,
+   "color": "#f6ae2d",
+   "specs": {
+    "Noise cancelling": "None",
+    "Battery": "9 h (36 h with case)",
+    "Water resistance": "IPX7",
+    "Weight": "5.1 g per bud",
+    "Mics": "2 per bud",
+    "Multipoint": "Yes",
+    "Ear wings": "No"
+   }
+  },
+  "p09": {
+   "name": "Ion Pods 2",
+   "price_usd": 147,
+   "color": "#2f4858",
+   "specs": {
+    "Noise cancelling": "Good",
+    "Battery": "10 h (20 h with case)",
+    "Water resistance": "IPX4",
+    "Weight": "4.9 g per bud",
+    "Mics": "1 per bud",
+    "Multipoint": "No",
+    "Ear wings": "Yes"
+   }
+  },
+  "p10": {
+   "name": "Juno Fit",
+   "price_usd": 56,
+   "color": "#7d8691",
+   "specs": {
+    "Noise cancelling": "None",
+    "Battery": "7 h (24 h with case)",
+    "Water resistance": "IPX4",
+    "Weight": "6.3 g per bud",
+    "Mics": "2 per bud",
+    "Multipoint": "No",
+    "Ear wings": "No"
+   }
+  },
+  "p11": {
+   "name": "Kestrel Sport S",
+   "price_usd": 119,
+   "color": "#f26419",
+   "specs": {
+    "Noise cancelling": "Basic",
+    "Battery": "6 h (30 h with case)",
+    "Water resistance": "IPX4",
+    "Weight": "5.0 g per bud",
+    "Mics": "1 per bud",
+    "Multipoint": "No",
+    "Ear wings": "Yes"
+   }
+  },
+  "p12": {
+   "name": "Lumen Buds 3",
+   "price_usd": 234,
+   "color": "#55dde0",
+   "specs": {
+    "Noise cancelling": "Strong",
+    "Battery": "9 h (28 h with case)",
+    "Water resistance": "IP55",
+    "Weight": "5.1 g per bud",
+    "Mics": "3 per bud",
+    "Multipoint": "Yes",
+    "Ear wings": "Yes"
+   }
+  },
+  "p13": {
+   "name": "Mira Pro 2",
+   "price_usd": 72,
+   "color": "#7d8691",
+   "specs": {
+    "Noise cancelling": "None",
+    "Battery": "5 h (24 h with case)",
+    "Water resistance": "IP55",
+    "Weight": "6.1 g per bud",
+    "Mics": "1 per bud",
+    "Multipoint": "No",
+    "Ear wings": "No"
+   }
+  },
+  "p14": {
+   "name": "Nook Studio X",
+   "price_usd": 228,
+   "color": "#8a5a83",
+   "specs": {
+    "Noise cancelling": "Strong",
+    "Battery": "12 h (36 h with case)",
+    "Water resistance": "IP55",
+    "Weight": "7.1 g per bud",
+    "Mics": "3 per bud",
+    "Multipoint": "No",
+    "Ear wings": "No"
+   }
+  },
+  "p15": {
+   "name": "Orca Air 3",
+   "price_usd": 82,
+   "color": "#f26419",
+   "specs": {
+    "Noise cancelling": "Good",
+    "Battery": "5 h (28 h with case)",
+    "Water resistance": "IPX4",
+    "Weight": "6.6 g per bud",
+    "Mics": "2 per bud",
+    "Multipoint": "Yes",
+    "Ear wings": "No"
+   }
+  },
+  "p16": {
+   "name": "Aurel Lite",
+   "price_usd": 133,
+   "color": "#2f4858",
+   "specs": {
+    "Noise cancelling": "Good",
+    "Battery": "10 h (36 h with case)",
+    "Water resistance": "None",
+    "Weight": "7.5 g per bud",
+    "Mics": "2 per bud",
+    "Multipoint": "Yes",
+    "Ear wings": "Yes"
+   }
+  },
+  "p17": {
+   "name": "Brisa Pods X",
+   "price_usd": 105,
+   "color": "#33658a",
+   "specs": {
+    "Noise cancelling": "Good",
+    "Battery": "6 h (20 h with case)",
+    "Water resistance": "IPX4",
+    "Weight": "7.0 g per bud",
+    "Mics": "3 per bud",
+    "Multipoint": "No",
+    "Ear wings": "No"
+   }
+  },
+  "p18": {
+   "name": "Cobalt Fit 2",
+   "price_usd": 46,
+   "color": "#33658a",
+   "specs": {
+    "Noise cancelling": "None",
+    "Battery": "10 h (30 h with case)",
+    "Water resistance": "IPX4",
+    "Weight": "4.1 g per bud",
+    "Mics": "2 per bud",
+    "Multipoint": "Yes",
+    "Ear wings": "Yes"
+   }
+  },
+  "p19": {
+   "name": "Dune Sport",
+   "price_usd": 204,
+   "color": "#33658a",
+   "specs": {
+    "Noise cancelling": "Strong",
+    "Battery": "7 h (40 h with case)",
+    "Water resistance": "IP55",
+    "Weight": "4.9 g per bud",
+    "Mics": "2 per bud",
+    "Multipoint": "Yes",
+    "Ear wings": "No"
+   }
+  },
+  "p20": {
+   "name": "Ember Buds S",
+   "price_usd": 81,
+   "color": "#2f4858",
+   "specs": {
+    "Noise cancelling": "Good",
+    "Battery": "8 h (28 h with case)",
+    "Water resistance": "IPX4",
+    "Weight": "7.4 g per bud",
+    "Mics": "2 per bud",
+    "Multipoint": "No",
+    "Ear wings": "No"
+   }
+  },
+  "p21": {
+   "name": "Fjord Pro 2",
+   "price_usd": 69,
+   "color": "#33658a",
+   "specs": {
+    "Noise cancelling": "Basic",
+    "Battery": "6 h (24 h with case)",
+    "Water resistance": "IPX7",
+    "Weight": "4.3 g per bud",
+    "Mics": "1 per bud",
+    "Multipoint": "No",
+    "Ear wings": "No"
+   }
+  },
+  "p22": {
+   "name": "Gala Studio",
+   "price_usd": 95,
+   "color": "#7d8691",
+   "specs": {
+    "Noise cancelling": "Good",
+    "Battery": "8 h (28 h with case)",
+    "Water resistance": "IPX7",
+    "Weight": "5.9 g per bud",
+    "Mics": "2 per bud",
+    "Multipoint": "Yes",
+    "Ear wings": "Yes"
+   }
+  },
+  "p23": {
+   "name": "Halo Audio Air X",
+   "price_usd": 192,
+   "color": "#86bbd8",
+   "specs": {
+    "Noise cancelling": "Strong",
+    "Battery": "7 h (40 h with case)",
+    "Water resistance": "IP55",
+    "Weight": "6.8 g per bud",
+    "Mics": "3 per bud",
+    "Multipoint": "Yes",
+    "Ear wings": "Yes"
+   }
+  },
+  "p24": {
+   "name": "Ion Lite 3",
+   "price_usd": 74,
+   "color": "#33658a",
+   "specs": {
+    "Noise cancelling": "Basic",
+    "Battery": "8 h (20 h with case)",
+    "Water resistance": "IPX4",
+    "Weight": "7.5 g per bud",
+    "Mics": "1 per bud",
+    "Multipoint": "No",
+    "Ear wings": "Yes"
+   }
+  },
+  "p25": {
+   "name": "Juno Pods X",
+   "price_usd": 207,
+   "color": "#86bbd8",
+   "specs": {
+    "Noise cancelling": "Strong",
+    "Battery": "7 h (36 h with case)",
+    "Water resistance": "IPX7",
+    "Weight": "5.3 g per bud",
+    "Mics": "2 per bud",
+    "Multipoint": "No",
+    "Ear wings": "No"
+   }
+  },
+  "p26": {
+   "name": "Kestrel Fit X",
+   "price_usd": 233,
+   "color": "#f6ae2d",
+   "specs": {
+    "Noise cancelling": "Strong",
+    "Battery": "12 h (28 h with case)",
+    "Water resistance": "IPX4",
+    "Weight": "6.2 g per bud",
+    "Mics": "2 per bud",
+    "Multipoint": "Yes",
+    "Ear wings": "No"
+   }
+  },
+  "p27": {
+   "name": "Lumen Sport 3",
+   "price_usd": 171,
+   "color": "#2f4858",
+   "specs": {
+    "Noise cancelling": "Strong",
+    "Battery": "12 h (30 h with case)",
+    "Water resistance": "IPX7",
+    "Weight": "6.4 g per bud",
+    "Mics": "2 per bud",
+    "Multipoint": "No",
+    "Ear wings": "Yes"
+   }
+  },
+  "p28": {
+   "name": "Mira Buds X",
+   "price_usd": 86,
+   "color": "#33658a",
+   "specs": {
+    "Noise cancelling": "Good",
+    "Battery": "12 h (24 h with case)",
+    "Water resistance": "IPX7",
+    "Weight": "6.8 g per bud",
+    "Mics": "1 per bud",
+    "Multipoint": "Yes",
+    "Ear wings": "No"
+   }
+  },
+  "p29": {
+   "name": "Nook Pro",
+   "price_usd": 58,
+   "color": "#2f4858",
+   "specs": {
+    "Noise cancelling": "None",
+    "Battery": "10 h (30 h with case)",
+    "Water resistance": "IPX7",
+    "Weight": "5.3 g per bud",
+    "Mics": "2 per bud",
+    "Multipoint": "Yes",
+    "Ear wings": "No"
+   }
+  },
+  "p30": {
+   "name": "Orca Studio",
+   "price_usd": 44,
+   "color": "#f26419",
+   "specs": {
+    "Noise cancelling": "None",
+    "Battery": "10 h (40 h with case)",
+    "Water resistance": "IPX7",
+    "Weight": "5.5 g per bud",
+    "Mics": "3 per bud",
+    "Multipoint": "No",
+    "Ear wings": "No"
+   }
+  },
+  "p31": {
+   "name": "Aurel Air",
+   "price_usd": 32,
+   "color": "#7d8691",
+   "specs": {
+    "Noise cancelling": "None",
+    "Battery": "5 h (36 h with case)",
+    "Water resistance": "IPX4",
+    "Weight": "6.1 g per bud",
+    "Mics": "1 per bud",
+    "Multipoint": "No",
+    "Ear wings": "Yes"
+   }
+  },
+  "p32": {
+   "name": "Brisa Lite",
+   "price_usd": 214,
+   "color": "#f26419",
+   "specs": {
+    "Noise cancelling": "Good",
+    "Battery": "10 h (40 h with case)",
+    "Water resistance": "IPX7",
+    "Weight": "5.1 g per bud",
+    "Mics": "3 per bud",
+    "Multipoint": "No",
+    "Ear wings": "Yes"
+   }
+  }
+ },
+ "stimuli_version": "4a99a7986e"
+}

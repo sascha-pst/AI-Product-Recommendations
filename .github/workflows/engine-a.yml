@@ -1,0 +1,39 @@
+name: Regenerate Engine A with Claude
+
+# Run by hand only: freezing Engine A's ratings is a deliberate, versioned step.
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Claude model id"
+        default: "claude-sonnet-5-5"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  rate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install anthropic
+      - run: python pipeline/engine_a_claude.py
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ENGINE_A_MODEL: ${{ inputs.model }}
+      - run: cd pipeline && python build_recs.py --engine-a claude
+      - name: Open a PR with the new ratings and stimuli
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          BR="engine-a-$(date +%Y%m%d-%H%M)"
+          git checkout -b "$BR"
+          git add data/engine_a_ratings.json src/recs.json data/offline_eval.json
+          git commit -m "Regenerate Engine A ratings with ${{ inputs.model }}"
+          git push origin "$BR"
+          gh pr create --fill --base main --head "$BR"
+        env:
+          GH_TOKEN: ${{ github.token }}

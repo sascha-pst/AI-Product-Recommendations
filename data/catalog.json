@@ -1,0 +1,1382 @@
+{
+  "_note": "SAMPLE DATA - fictional products and synthetic review statistics. Do not use in a live study.",
+  "category": "Wireless earbuds",
+  "products": [
+    {
+      "id": "p01",
+      "name": "Aurel Pods 3",
+      "brand": "Aurel",
+      "price_usd": 244,
+      "tier": "premium",
+      "color": "#33658a",
+      "specs": {
+        "anc_level": 2,
+        "battery_hours": 6,
+        "case_battery_hours": 40,
+        "ip_rating": "none",
+        "weight_g": 6.4,
+        "mics_per_bud": 3,
+        "multipoint": true,
+        "ear_hooks_or_wings": false,
+        "codec": "SBC/AAC"
+      },
+      "reviews": {
+        "count": 881,
+        "avg_rating": 4.18,
+        "aspect_positive_share": {
+          "sound": 0.74,
+          "noise_cancelling": 0.69,
+          "battery": 0.64,
+          "comfort": 0.61,
+          "call_quality": 0.75,
+          "durability": 0.6,
+          "fit_security": 0.69
+        },
+        "aspect_mentions": {
+          "sound": 208,
+          "noise_cancelling": 161,
+          "battery": 140,
+          "comfort": 319,
+          "call_quality": 103,
+          "durability": 194,
+          "fit_security": 187
+        },
+        "helpful_votes": 1100,
+        "share_last_12_months": 0.55
+      }
+    },
+    {
+      "id": "p02",
+      "name": "Brisa Fit S",
+      "brand": "Brisa",
+      "price_usd": 160,
+      "tier": "premium",
+      "color": "#f26419",
+      "specs": {
+        "anc_level": 3,
+        "battery_hours": 9,
+        "case_battery_hours": 28,
+        "ip_rating": "IPX7",
+        "weight_g": 4.7,
+        "mics_per_bud": 1,
+        "multipoint": true,
+        "ear_hooks_or_wings": true,
+        "codec": "LDAC"
+      },
+      "reviews": {
+        "count": 1446,
+        "avg_rating": 4.83,
+        "aspect_positive_share": {
+          "sound": 0.96,
+          "noise_cancelling": 0.96,
+          "battery": 0.96,
+          "comfort": 0.82,
+          "call_quality": 0.67,
+          "durability": 0.95,
+          "fit_security": 0.96
+        },
+        "aspect_mentions": {
+          "sound": 481,
+          "noise_cancelling": 153,
+          "battery": 455,
+          "comfort": 401,
+          "call_quality": 246,
+          "durability": 362,
+          "fit_security": 260
+        },
+        "helpful_votes": 1576,
+        "share_last_12_months": 0.61
+      }
+    },
+    {
+      "id": "p03",
+      "name": "Cobalt Sport S",
+      "brand": "Cobalt",
+      "price_usd": 43,
+      "tier": "budget",
+      "color": "#7d8691",
+      "specs": {
+        "anc_level": 0,
+        "battery_hours": 6,
+        "case_battery_hours": 36,
+        "ip_rating": "IPX4",
+        "weight_g": 4.7,
+        "mics_per_bud": 2,
+        "multipoint": false,
+        "ear_hooks_or_wings": false,
+        "codec": "aptX Adaptive"
+      },
+      "reviews": {
+        "count": 468,
+        "avg_rating": 4.1,
+        "aspect_positive_share": {
+          "sound": 0.72,
+          "noise_cancelling": null,
+          "battery": 0.66,
+          "comfort": 0.63,
+          "call_quality": 0.71,
+          "durability": 0.57,
+          "fit_security": 0.58
+        },
+        "aspect_mentions": {
+          "sound": 186,
+          "noise_cancelling": 0,
+          "battery": 63,
+          "comfort": 65,
+          "call_quality": 155,
+          "durability": 140,
+          "fit_security": 104
+        },
+        "helpful_votes": 415,
+        "share_last_12_months": 0.68
+      }
+    },
+    {
+      "id": "p04",
+      "name": "Dune Buds S",
+      "brand": "Dune",
+      "price_usd": 72,
+      "tier": "budget",
+      "color": "#86bbd8",
+      "specs": {
+        "anc_level": 1,
+        "battery_hours": 7,
+        "case_battery_hours": 20,
+        "ip_rating": "IPX4",
+        "weight_g": 5.5,
+        "mics_per_bud": 2,
+        "multipoint": true,
+        "ear_hooks_or_wings": false,
+        "codec": "LDAC"
+      },
+      "reviews": {
+        "count": 3530,
+        "avg_rating": 3.84,
+        "aspect_positive_share": {
+          "sound": 0.59,
+          "noise_cancelling": 0.44,
+          "battery": 0.61,
+          "comfort": 0.49,
+          "call_quality": 0.55,
+          "durability": 0.51,
+          "fit_security": 0.54
+        },
+        "aspect_mentions": {
+          "sound": 920,
+          "noise_cancelling": 428,
+          "battery": 756,
+          "comfort": 1569,
+          "call_quality": 1336,
+          "durability": 595,
+          "fit_security": 597
+        },
+        "helpful_votes": 1099,
+        "share_last_12_months": 0.42
+      }
+    },
+    {
+      "id": "p05",
+      "name": "Ember Pro 3",
+      "brand": "Ember",
+      "price_usd": 77,
+      "tier": "budget",
+      "color": "#7d8691",
+      "specs": {
+        "anc_level": 0,
+        "battery_hours": 8,
+        "case_battery_hours": 36,
+        "ip_rating": "IPX4",
+        "weight_g": 4.9,
+        "mics_per_bud": 3,
+        "multipoint": false,
+        "ear_hooks_or_wings": true,
+        "codec": "SBC/AAC"
+      },
+      "reviews": {
+        "count": 582,
+        "avg_rating": 4.3,
+        "aspect_positive_share": {
+          "sound": 0.65,
+          "noise_cancelling": null,
+          "battery": 0.67,
+          "comfort": 0.67,
+          "call_quality": 0.77,
+          "durability": 0.7,
+          "fit_security": 0.8
+        },
+        "aspect_mentions": {
+          "sound": 198,
+          "noise_cancelling": 0,
+          "battery": 59,
+          "comfort": 61,
+          "call_quality": 53,
+          "durability": 117,
+          "fit_security": 157
+        },
+        "helpful_votes": 278,
+        "share_last_12_months": 0.22
+      }
+    },
+    {
+      "id": "p06",
+      "name": "Fjord Studio",
+      "brand": "Fjord",
+      "price_usd": 181,
+      "tier": "premium",
+      "color": "#f26419",
+      "specs": {
+        "anc_level": 2,
+        "battery_hours": 5,
+        "case_battery_hours": 20,
+        "ip_rating": "IP55",
+        "weight_g": 5.2,
+        "mics_per_bud": 2,
+        "multipoint": true,
+        "ear_hooks_or_wings": false,
+        "codec": "SBC/AAC"
+      },
+      "reviews": {
+        "count": 280,
+        "avg_rating": 4.39,
+        "aspect_positive_share": {
+          "sound": 0.79,
+          "noise_cancelling": 0.76,
+          "battery": 0.65,
+          "comfort": 0.65,
+          "call_quality": 0.74,
+          "durability": 0.83,
+          "fit_security": 0.66
+        },
+        "aspect_mentions": {
+          "sound": 30,
+          "noise_cancelling": 106,
+          "battery": 111,
+          "comfort": 32,
+          "call_quality": 89,
+          "durability": 78,
+          "fit_security": 23
+        },
+        "helpful_votes": 116,
+        "share_last_12_months": 0.42
+      }
+    },
+    {
+      "id": "p07",
+      "name": "Gala Air 2",
+      "brand": "Gala",
+      "price_usd": 54,
+      "tier": "budget",
+      "color": "#8a5a83",
+      "specs": {
+        "anc_level": 0,
+        "battery_hours": 7,
+        "case_battery_hours": 30,
+        "ip_rating": "IPX4",
+        "weight_g": 5.5,
+        "mics_per_bud": 3,
+        "multipoint": false,
+        "ear_hooks_or_wings": false,
+        "codec": "aptX Adaptive"
+      },
+      "reviews": {
+        "count": 511,
+        "avg_rating": 4.78,
+        "aspect_positive_share": {
+          "sound": 0.93,
+          "noise_cancelling": null,
+          "battery": 0.96,
+          "comfort": 0.83,
+          "call_quality": 0.91,
+          "durability": 0.8,
+          "fit_security": 0.9
+        },
+        "aspect_mentions": {
+          "sound": 70,
+          "noise_cancelling": 0,
+          "battery": 222,
+          "comfort": 56,
+          "call_quality": 76,
+          "durability": 153,
+          "fit_security": 168
+        },
+        "helpful_votes": 181,
+        "share_last_12_months": 0.64
+      }
+    },
+    {
+      "id": "p08",
+      "name": "Halo Audio Lite 3",
+      "brand": "Halo Audio",
+      "price_usd": 66,
+      "tier": "budget",
+      "color": "#f6ae2d",
+      "specs": {
+        "anc_level": 0,
+        "battery_hours": 9,
+        "case_battery_hours": 36,
+        "ip_rating": "IPX7",
+        "weight_g": 5.1,
+        "mics_per_bud": 2,
+        "multipoint": true,
+        "ear_hooks_or_wings": false,
+        "codec": "SBC/AAC"
+      },
+      "reviews": {
+        "count": 562,
+        "avg_rating": 4.22,
+        "aspect_positive_share": {
+          "sound": 0.65,
+          "noise_cancelling": null,
+          "battery": 0.67,
+          "comfort": 0.59,
+          "call_quality": 0.8,
+          "durability": 0.65,
+          "fit_security": 0.68
+        },
+        "aspect_mentions": {
+          "sound": 156,
+          "noise_cancelling": 0,
+          "battery": 150,
+          "comfort": 72,
+          "call_quality": 117,
+          "durability": 59,
+          "fit_security": 95
+        },
+        "helpful_votes": 432,
+        "share_last_12_months": 0.45
+      }
+    },
+    {
+      "id": "p09",
+      "name": "Ion Pods 2",
+      "brand": "Ion",
+      "price_usd": 147,
+      "tier": "mid",
+      "color": "#2f4858",
+      "specs": {
+        "anc_level": 2,
+        "battery_hours": 10,
+        "case_battery_hours": 20,
+        "ip_rating": "IPX4",
+        "weight_g": 4.9,
+        "mics_per_bud": 1,
+        "multipoint": false,
+        "ear_hooks_or_wings": true,
+        "codec": "LDAC"
+      },
+      "reviews": {
+        "count": 2018,
+        "avg_rating": 4.07,
+        "aspect_positive_share": {
+          "sound": 0.52,
+          "noise_cancelling": 0.59,
+          "battery": 0.71,
+          "comfort": 0.52,
+          "call_quality": 0.52,
+          "durability": 0.57,
+          "fit_security": 0.61
+        },
+        "aspect_mentions": {
+          "sound": 357,
+          "noise_cancelling": 714,
+          "battery": 573,
+          "comfort": 480,
+          "call_quality": 168,
+          "durability": 217,
+          "fit_security": 820
+        },
+        "helpful_votes": 2593,
+        "share_last_12_months": 0.47
+      }
+    },
+    {
+      "id": "p10",
+      "name": "Juno Fit",
+      "brand": "Juno",
+      "price_usd": 56,
+      "tier": "budget",
+      "color": "#7d8691",
+      "specs": {
+        "anc_level": 0,
+        "battery_hours": 7,
+        "case_battery_hours": 24,
+        "ip_rating": "IPX4",
+        "weight_g": 6.3,
+        "mics_per_bud": 2,
+        "multipoint": false,
+        "ear_hooks_or_wings": false,
+        "codec": "aptX Adaptive"
+      },
+      "reviews": {
+        "count": 1219,
+        "avg_rating": 4.39,
+        "aspect_positive_share": {
+          "sound": 0.82,
+          "noise_cancelling": null,
+          "battery": 0.7,
+          "comfort": 0.67,
+          "call_quality": 0.72,
+          "durability": 0.71,
+          "fit_security": 0.75
+        },
+        "aspect_mentions": {
+          "sound": 399,
+          "noise_cancelling": 0,
+          "battery": 429,
+          "comfort": 209,
+          "call_quality": 169,
+          "durability": 413,
+          "fit_security": 270
+        },
+        "helpful_votes": 596,
+        "share_last_12_months": 0.6
+      }
+    },
+    {
+      "id": "p11",
+      "name": "Kestrel Sport S",
+      "brand": "Kestrel",
+      "price_usd": 119,
+      "tier": "mid",
+      "color": "#f26419",
+      "specs": {
+        "anc_level": 1,
+        "battery_hours": 6,
+        "case_battery_hours": 30,
+        "ip_rating": "IPX4",
+        "weight_g": 5.0,
+        "mics_per_bud": 1,
+        "multipoint": false,
+        "ear_hooks_or_wings": true,
+        "codec": "aptX Adaptive"
+      },
+      "reviews": {
+        "count": 126,
+        "avg_rating": 4.12,
+        "aspect_positive_share": {
+          "sound": 0.74,
+          "noise_cancelling": 0.51,
+          "battery": 0.72,
+          "comfort": 0.75,
+          "call_quality": 0.71,
+          "durability": 0.66,
+          "fit_security": 0.74
+        },
+        "aspect_mentions": {
+          "sound": 30,
+          "noise_cancelling": 55,
+          "battery": 15,
+          "comfort": 52,
+          "call_quality": 18,
+          "durability": 12,
+          "fit_security": 30
+        },
+        "helpful_votes": 84,
+        "share_last_12_months": 0.19
+      }
+    },
+    {
+      "id": "p12",
+      "name": "Lumen Buds 3",
+      "brand": "Lumen",
+      "price_usd": 234,
+      "tier": "premium",
+      "color": "#55dde0",
+      "specs": {
+        "anc_level": 3,
+        "battery_hours": 9,
+        "case_battery_hours": 28,
+        "ip_rating": "IP55",
+        "weight_g": 5.1,
+        "mics_per_bud": 3,
+        "multipoint": true,
+        "ear_hooks_or_wings": true,
+        "codec": "aptX Adaptive"
+      },
+      "reviews": {
+        "count": 663,
+        "avg_rating": 3.72,
+        "aspect_positive_share": {
+          "sound": 0.38,
+          "noise_cancelling": 0.59,
+          "battery": 0.41,
+          "comfort": 0.32,
+          "call_quality": 0.48,
+          "durability": 0.48,
+          "fit_security": 0.49
+        },
+        "aspect_mentions": {
+          "sound": 161,
+          "noise_cancelling": 218,
+          "battery": 178,
+          "comfort": 247,
+          "call_quality": 288,
+          "durability": 233,
+          "fit_security": 214
+        },
+        "helpful_votes": 213,
+        "share_last_12_months": 0.67
+      }
+    },
+    {
+      "id": "p13",
+      "name": "Mira Pro 2",
+      "brand": "Mira",
+      "price_usd": 72,
+      "tier": "budget",
+      "color": "#7d8691",
+      "specs": {
+        "anc_level": 0,
+        "battery_hours": 5,
+        "case_battery_hours": 24,
+        "ip_rating": "IP55",
+        "weight_g": 6.1,
+        "mics_per_bud": 1,
+        "multipoint": false,
+        "ear_hooks_or_wings": false,
+        "codec": "SBC/AAC"
+      },
+      "reviews": {
+        "count": 965,
+        "avg_rating": 4.53,
+        "aspect_positive_share": {
+          "sound": 0.78,
+          "noise_cancelling": null,
+          "battery": 0.71,
+          "comfort": 0.73,
+          "call_quality": 0.77,
+          "durability": 0.84,
+          "fit_security": 0.65
+        },
+        "aspect_mentions": {
+          "sound": 364,
+          "noise_cancelling": 0,
+          "battery": 325,
+          "comfort": 243,
+          "call_quality": 276,
+          "durability": 404,
+          "fit_security": 120
+        },
+        "helpful_votes": 1030,
+        "share_last_12_months": 0.69
+      }
+    },
+    {
+      "id": "p14",
+      "name": "Nook Studio X",
+      "brand": "Nook",
+      "price_usd": 228,
+      "tier": "premium",
+      "color": "#8a5a83",
+      "specs": {
+        "anc_level": 3,
+        "battery_hours": 12,
+        "case_battery_hours": 36,
+        "ip_rating": "IP55",
+        "weight_g": 7.1,
+        "mics_per_bud": 3,
+        "multipoint": false,
+        "ear_hooks_or_wings": false,
+        "codec": "SBC/AAC"
+      },
+      "reviews": {
+        "count": 27,
+        "avg_rating": 3.84,
+        "aspect_positive_share": {
+          "sound": 0.53,
+          "noise_cancelling": 0.66,
+          "battery": 0.66,
+          "comfort": 0.3,
+          "call_quality": 0.62,
+          "durability": 0.62,
+          "fit_security": 0.43
+        },
+        "aspect_mentions": {
+          "sound": 2,
+          "noise_cancelling": 3,
+          "battery": 5,
+          "comfort": 3,
+          "call_quality": 4,
+          "durability": 6,
+          "fit_security": 5
+        },
+        "helpful_votes": 7,
+        "share_last_12_months": 0.61
+      }
+    },
+    {
+      "id": "p15",
+      "name": "Orca Air 3",
+      "brand": "Orca",
+      "price_usd": 82,
+      "tier": "mid",
+      "color": "#f26419",
+      "specs": {
+        "anc_level": 2,
+        "battery_hours": 5,
+        "case_battery_hours": 28,
+        "ip_rating": "IPX4",
+        "weight_g": 6.6,
+        "mics_per_bud": 2,
+        "multipoint": true,
+        "ear_hooks_or_wings": false,
+        "codec": "SBC/AAC"
+      },
+      "reviews": {
+        "count": 984,
+        "avg_rating": 4.48,
+        "aspect_positive_share": {
+          "sound": 0.76,
+          "noise_cancelling": 0.73,
+          "battery": 0.71,
+          "comfort": 0.6,
+          "call_quality": 0.69,
+          "durability": 0.68,
+          "fit_security": 0.59
+        },
+        "aspect_mentions": {
+          "sound": 294,
+          "noise_cancelling": 320,
+          "battery": 109,
+          "comfort": 234,
+          "call_quality": 394,
+          "durability": 144,
+          "fit_security": 173
+        },
+        "helpful_votes": 778,
+        "share_last_12_months": 0.34
+      }
+    },
+    {
+      "id": "p16",
+      "name": "Aurel Lite",
+      "brand": "Aurel",
+      "price_usd": 133,
+      "tier": "mid",
+      "color": "#2f4858",
+      "specs": {
+        "anc_level": 2,
+        "battery_hours": 10,
+        "case_battery_hours": 36,
+        "ip_rating": "none",
+        "weight_g": 7.5,
+        "mics_per_bud": 2,
+        "multipoint": true,
+        "ear_hooks_or_wings": true,
+        "codec": "SBC/AAC"
+      },
+      "reviews": {
+        "count": 83,
+        "avg_rating": 3.73,
+        "aspect_positive_share": {
+          "sound": 0.53,
+          "noise_cancelling": 0.41,
+          "battery": 0.62,
+          "comfort": 0.38,
+          "call_quality": 0.56,
+          "durability": 0.49,
+          "fit_security": 0.63
+        },
+        "aspect_mentions": {
+          "sound": 30,
+          "noise_cancelling": 11,
+          "battery": 25,
+          "comfort": 29,
+          "call_quality": 10,
+          "durability": 31,
+          "fit_security": 36
+        },
+        "helpful_votes": 116,
+        "share_last_12_months": 0.47
+      }
+    },
+    {
+      "id": "p17",
+      "name": "Brisa Pods X",
+      "brand": "Brisa",
+      "price_usd": 105,
+      "tier": "mid",
+      "color": "#33658a",
+      "specs": {
+        "anc_level": 2,
+        "battery_hours": 6,
+        "case_battery_hours": 20,
+        "ip_rating": "IPX4",
+        "weight_g": 7.0,
+        "mics_per_bud": 3,
+        "multipoint": false,
+        "ear_hooks_or_wings": false,
+        "codec": "SBC/AAC"
+      },
+      "reviews": {
+        "count": 4102,
+        "avg_rating": 4.16,
+        "aspect_positive_share": {
+          "sound": 0.65,
+          "noise_cancelling": 0.58,
+          "battery": 0.62,
+          "comfort": 0.41,
+          "call_quality": 0.82,
+          "durability": 0.55,
+          "fit_security": 0.51
+        },
+        "aspect_mentions": {
+          "sound": 989,
+          "noise_cancelling": 1441,
+          "battery": 1793,
+          "comfort": 738,
+          "call_quality": 1554,
+          "durability": 1144,
+          "fit_security": 1061
+        },
+        "helpful_votes": 2539,
+        "share_last_12_months": 0.29
+      }
+    },
+    {
+      "id": "p18",
+      "name": "Cobalt Fit 2",
+      "brand": "Cobalt",
+      "price_usd": 46,
+      "tier": "budget",
+      "color": "#33658a",
+      "specs": {
+        "anc_level": 0,
+        "battery_hours": 10,
+        "case_battery_hours": 30,
+        "ip_rating": "IPX4",
+        "weight_g": 4.1,
+        "mics_per_bud": 2,
+        "multipoint": true,
+        "ear_hooks_or_wings": true,
+        "codec": "LDAC"
+      },
+      "reviews": {
+        "count": 450,
+        "avg_rating": 4.38,
+        "aspect_positive_share": {
+          "sound": 0.56,
+          "noise_cancelling": null,
+          "battery": 0.82,
+          "comfort": 0.65,
+          "call_quality": 0.6,
+          "durability": 0.71,
+          "fit_security": 0.77
+        },
+        "aspect_mentions": {
+          "sound": 150,
+          "noise_cancelling": 0,
+          "battery": 143,
+          "comfort": 117,
+          "call_quality": 168,
+          "durability": 51,
+          "fit_security": 72
+        },
+        "helpful_votes": 478,
+        "share_last_12_months": 0.35
+      }
+    },
+    {
+      "id": "p19",
+      "name": "Dune Sport",
+      "brand": "Dune",
+      "price_usd": 204,
+      "tier": "premium",
+      "color": "#33658a",
+      "specs": {
+        "anc_level": 3,
+        "battery_hours": 7,
+        "case_battery_hours": 40,
+        "ip_rating": "IP55",
+        "weight_g": 4.9,
+        "mics_per_bud": 2,
+        "multipoint": true,
+        "ear_hooks_or_wings": false,
+        "codec": "LDAC"
+      },
+      "reviews": {
+        "count": 525,
+        "avg_rating": 4.23,
+        "aspect_positive_share": {
+          "sound": 0.84,
+          "noise_cancelling": 0.96,
+          "battery": 0.74,
+          "comfort": 0.7,
+          "call_quality": 0.78,
+          "durability": 0.87,
+          "fit_security": 0.66
+        },
+        "aspect_mentions": {
+          "sound": 61,
+          "noise_cancelling": 79,
+          "battery": 86,
+          "comfort": 76,
+          "call_quality": 44,
+          "durability": 145,
+          "fit_security": 95
+        },
+        "helpful_votes": 580,
+        "share_last_12_months": 0.22
+      }
+    },
+    {
+      "id": "p20",
+      "name": "Ember Buds S",
+      "brand": "Ember",
+      "price_usd": 81,
+      "tier": "mid",
+      "color": "#2f4858",
+      "specs": {
+        "anc_level": 2,
+        "battery_hours": 8,
+        "case_battery_hours": 28,
+        "ip_rating": "IPX4",
+        "weight_g": 7.4,
+        "mics_per_bud": 2,
+        "multipoint": false,
+        "ear_hooks_or_wings": false,
+        "codec": "SBC/AAC"
+      },
+      "reviews": {
+        "count": 1285,
+        "avg_rating": 3.71,
+        "aspect_positive_share": {
+          "sound": 0.42,
+          "noise_cancelling": 0.42,
+          "battery": 0.42,
+          "comfort": 0.3,
+          "call_quality": 0.49,
+          "durability": 0.28,
+          "fit_security": 0.53
+        },
+        "aspect_mentions": {
+          "sound": 210,
+          "noise_cancelling": 351,
+          "battery": 316,
+          "comfort": 313,
+          "call_quality": 511,
+          "durability": 573,
+          "fit_security": 247
+        },
+        "helpful_votes": 1275,
+        "share_last_12_months": 0.56
+      }
+    },
+    {
+      "id": "p21",
+      "name": "Fjord Pro 2",
+      "brand": "Fjord",
+      "price_usd": 69,
+      "tier": "budget",
+      "color": "#33658a",
+      "specs": {
+        "anc_level": 1,
+        "battery_hours": 6,
+        "case_battery_hours": 24,
+        "ip_rating": "IPX7",
+        "weight_g": 4.3,
+        "mics_per_bud": 1,
+        "multipoint": false,
+        "ear_hooks_or_wings": false,
+        "codec": "aptX Adaptive"
+      },
+      "reviews": {
+        "count": 988,
+        "avg_rating": 4.29,
+        "aspect_positive_share": {
+          "sound": 0.76,
+          "noise_cancelling": 0.68,
+          "battery": 0.72,
+          "comfort": 0.72,
+          "call_quality": 0.61,
+          "durability": 0.86,
+          "fit_security": 0.81
+        },
+        "aspect_mentions": {
+          "sound": 420,
+          "noise_cancelling": 234,
+          "battery": 278,
+          "comfort": 315,
+          "call_quality": 411,
+          "durability": 381,
+          "fit_security": 105
+        },
+        "helpful_votes": 961,
+        "share_last_12_months": 0.6
+      }
+    },
+    {
+      "id": "p22",
+      "name": "Gala Studio",
+      "brand": "Gala",
+      "price_usd": 95,
+      "tier": "mid",
+      "color": "#7d8691",
+      "specs": {
+        "anc_level": 2,
+        "battery_hours": 8,
+        "case_battery_hours": 28,
+        "ip_rating": "IPX7",
+        "weight_g": 5.9,
+        "mics_per_bud": 2,
+        "multipoint": true,
+        "ear_hooks_or_wings": true,
+        "codec": "aptX Adaptive"
+      },
+      "reviews": {
+        "count": 904,
+        "avg_rating": 4.19,
+        "aspect_positive_share": {
+          "sound": 0.61,
+          "noise_cancelling": 0.72,
+          "battery": 0.68,
+          "comfort": 0.53,
+          "call_quality": 0.56,
+          "durability": 0.7,
+          "fit_security": 0.78
+        },
+        "aspect_mentions": {
+          "sound": 130,
+          "noise_cancelling": 245,
+          "battery": 220,
+          "comfort": 165,
+          "call_quality": 405,
+          "durability": 218,
+          "fit_security": 344
+        },
+        "helpful_votes": 589,
+        "share_last_12_months": 0.33
+      }
+    },
+    {
+      "id": "p23",
+      "name": "Halo Audio Air X",
+      "brand": "Halo Audio",
+      "price_usd": 192,
+      "tier": "premium",
+      "color": "#86bbd8",
+      "specs": {
+        "anc_level": 3,
+        "battery_hours": 7,
+        "case_battery_hours": 40,
+        "ip_rating": "IP55",
+        "weight_g": 6.8,
+        "mics_per_bud": 3,
+        "multipoint": true,
+        "ear_hooks_or_wings": true,
+        "codec": "LDAC"
+      },
+      "reviews": {
+        "count": 195,
+        "avg_rating": 3.89,
+        "aspect_positive_share": {
+          "sound": 0.44,
+          "noise_cancelling": 0.82,
+          "battery": 0.42,
+          "comfort": 0.4,
+          "call_quality": 0.68,
+          "durability": 0.53,
+          "fit_security": 0.56
+        },
+        "aspect_mentions": {
+          "sound": 70,
+          "noise_cancelling": 60,
+          "battery": 70,
+          "comfort": 30,
+          "call_quality": 55,
+          "durability": 82,
+          "fit_security": 47
+        },
+        "helpful_votes": 46,
+        "share_last_12_months": 0.5
+      }
+    },
+    {
+      "id": "p24",
+      "name": "Ion Lite 3",
+      "brand": "Ion",
+      "price_usd": 74,
+      "tier": "budget",
+      "color": "#33658a",
+      "specs": {
+        "anc_level": 1,
+        "battery_hours": 8,
+        "case_battery_hours": 20,
+        "ip_rating": "IPX4",
+        "weight_g": 7.5,
+        "mics_per_bud": 1,
+        "multipoint": false,
+        "ear_hooks_or_wings": true,
+        "codec": "SBC/AAC"
+      },
+      "reviews": {
+        "count": 560,
+        "avg_rating": 3.52,
+        "aspect_positive_share": {
+          "sound": 0.46,
+          "noise_cancelling": 0.31,
+          "battery": 0.53,
+          "comfort": 0.43,
+          "call_quality": 0.28,
+          "durability": 0.44,
+          "fit_security": 0.72
+        },
+        "aspect_mentions": {
+          "sound": 223,
+          "noise_cancelling": 102,
+          "battery": 208,
+          "comfort": 130,
+          "call_quality": 238,
+          "durability": 150,
+          "fit_security": 214
+        },
+        "helpful_votes": 721,
+        "share_last_12_months": 0.47
+      }
+    },
+    {
+      "id": "p25",
+      "name": "Juno Pods X",
+      "brand": "Juno",
+      "price_usd": 207,
+      "tier": "premium",
+      "color": "#86bbd8",
+      "specs": {
+        "anc_level": 3,
+        "battery_hours": 7,
+        "case_battery_hours": 36,
+        "ip_rating": "IPX7",
+        "weight_g": 5.3,
+        "mics_per_bud": 2,
+        "multipoint": false,
+        "ear_hooks_or_wings": false,
+        "codec": "SBC/AAC"
+      },
+      "reviews": {
+        "count": 2760,
+        "avg_rating": 4.46,
+        "aspect_positive_share": {
+          "sound": 0.77,
+          "noise_cancelling": 0.96,
+          "battery": 0.81,
+          "comfort": 0.77,
+          "call_quality": 0.83,
+          "durability": 0.78,
+          "fit_security": 0.77
+        },
+        "aspect_mentions": {
+          "sound": 1222,
+          "noise_cancelling": 726,
+          "battery": 258,
+          "comfort": 733,
+          "call_quality": 823,
+          "durability": 1108,
+          "fit_security": 1113
+        },
+        "helpful_votes": 2439,
+        "share_last_12_months": 0.4
+      }
+    },
+    {
+      "id": "p26",
+      "name": "Kestrel Fit X",
+      "brand": "Kestrel",
+      "price_usd": 233,
+      "tier": "premium",
+      "color": "#f6ae2d",
+      "specs": {
+        "anc_level": 3,
+        "battery_hours": 12,
+        "case_battery_hours": 28,
+        "ip_rating": "IPX4",
+        "weight_g": 6.2,
+        "mics_per_bud": 2,
+        "multipoint": true,
+        "ear_hooks_or_wings": false,
+        "codec": "aptX Adaptive"
+      },
+      "reviews": {
+        "count": 2589,
+        "avg_rating": 4.82,
+        "aspect_positive_share": {
+          "sound": 0.96,
+          "noise_cancelling": 0.96,
+          "battery": 0.96,
+          "comfort": 0.81,
+          "call_quality": 0.96,
+          "durability": 0.92,
+          "fit_security": 0.96
+        },
+        "aspect_mentions": {
+          "sound": 303,
+          "noise_cancelling": 366,
+          "battery": 493,
+          "comfort": 234,
+          "call_quality": 517,
+          "durability": 260,
+          "fit_security": 550
+        },
+        "helpful_votes": 1339,
+        "share_last_12_months": 0.38
+      }
+    },
+    {
+      "id": "p27",
+      "name": "Lumen Sport 3",
+      "brand": "Lumen",
+      "price_usd": 171,
+      "tier": "premium",
+      "color": "#2f4858",
+      "specs": {
+        "anc_level": 3,
+        "battery_hours": 12,
+        "case_battery_hours": 30,
+        "ip_rating": "IPX7",
+        "weight_g": 6.4,
+        "mics_per_bud": 2,
+        "multipoint": false,
+        "ear_hooks_or_wings": true,
+        "codec": "aptX Adaptive"
+      },
+      "reviews": {
+        "count": 954,
+        "avg_rating": 4.41,
+        "aspect_positive_share": {
+          "sound": 0.73,
+          "noise_cancelling": 0.88,
+          "battery": 0.82,
+          "comfort": 0.52,
+          "call_quality": 0.7,
+          "durability": 0.8,
+          "fit_security": 0.85
+        },
+        "aspect_mentions": {
+          "sound": 182,
+          "noise_cancelling": 429,
+          "battery": 377,
+          "comfort": 113,
+          "call_quality": 210,
+          "durability": 203,
+          "fit_security": 180
+        },
+        "helpful_votes": 1403,
+        "share_last_12_months": 0.51
+      }
+    },
+    {
+      "id": "p28",
+      "name": "Mira Buds X",
+      "brand": "Mira",
+      "price_usd": 86,
+      "tier": "mid",
+      "color": "#33658a",
+      "specs": {
+        "anc_level": 2,
+        "battery_hours": 12,
+        "case_battery_hours": 24,
+        "ip_rating": "IPX7",
+        "weight_g": 6.8,
+        "mics_per_bud": 1,
+        "multipoint": true,
+        "ear_hooks_or_wings": false,
+        "codec": "SBC/AAC"
+      },
+      "reviews": {
+        "count": 243,
+        "avg_rating": 3.69,
+        "aspect_positive_share": {
+          "sound": 0.42,
+          "noise_cancelling": 0.51,
+          "battery": 0.62,
+          "comfort": 0.32,
+          "call_quality": 0.46,
+          "durability": 0.57,
+          "fit_security": 0.42
+        },
+        "aspect_mentions": {
+          "sound": 67,
+          "noise_cancelling": 106,
+          "battery": 67,
+          "comfort": 101,
+          "call_quality": 94,
+          "durability": 42,
+          "fit_security": 93
+        },
+        "helpful_votes": 284,
+        "share_last_12_months": 0.34
+      }
+    },
+    {
+      "id": "p29",
+      "name": "Nook Pro",
+      "brand": "Nook",
+      "price_usd": 58,
+      "tier": "budget",
+      "color": "#2f4858",
+      "specs": {
+        "anc_level": 0,
+        "battery_hours": 10,
+        "case_battery_hours": 30,
+        "ip_rating": "IPX7",
+        "weight_g": 5.3,
+        "mics_per_bud": 2,
+        "multipoint": true,
+        "ear_hooks_or_wings": false,
+        "codec": "aptX Adaptive"
+      },
+      "reviews": {
+        "count": 214,
+        "avg_rating": 4.53,
+        "aspect_positive_share": {
+          "sound": 0.75,
+          "noise_cancelling": null,
+          "battery": 0.96,
+          "comfort": 0.79,
+          "call_quality": 0.9,
+          "durability": 0.84,
+          "fit_security": 0.72
+        },
+        "aspect_mentions": {
+          "sound": 68,
+          "noise_cancelling": 0,
+          "battery": 67,
+          "comfort": 53,
+          "call_quality": 72,
+          "durability": 68,
+          "fit_security": 26
+        },
+        "helpful_votes": 127,
+        "share_last_12_months": 0.42
+      }
+    },
+    {
+      "id": "p30",
+      "name": "Orca Studio",
+      "brand": "Orca",
+      "price_usd": 44,
+      "tier": "budget",
+      "color": "#f26419",
+      "specs": {
+        "anc_level": 0,
+        "battery_hours": 10,
+        "case_battery_hours": 40,
+        "ip_rating": "IPX7",
+        "weight_g": 5.5,
+        "mics_per_bud": 3,
+        "multipoint": false,
+        "ear_hooks_or_wings": false,
+        "codec": "SBC/AAC"
+      },
+      "reviews": {
+        "count": 38,
+        "avg_rating": 3.9,
+        "aspect_positive_share": {
+          "sound": 0.56,
+          "noise_cancelling": null,
+          "battery": 0.58,
+          "comfort": 0.56,
+          "call_quality": 0.66,
+          "durability": 0.6,
+          "fit_security": 0.46
+        },
+        "aspect_mentions": {
+          "sound": 12,
+          "noise_cancelling": 0,
+          "battery": 3,
+          "comfort": 6,
+          "call_quality": 16,
+          "durability": 16,
+          "fit_security": 14
+        },
+        "helpful_votes": 39,
+        "share_last_12_months": 0.48
+      }
+    },
+    {
+      "id": "p31",
+      "name": "Aurel Air",
+      "brand": "Aurel",
+      "price_usd": 32,
+      "tier": "budget",
+      "color": "#7d8691",
+      "specs": {
+        "anc_level": 0,
+        "battery_hours": 5,
+        "case_battery_hours": 36,
+        "ip_rating": "IPX4",
+        "weight_g": 6.1,
+        "mics_per_bud": 1,
+        "multipoint": false,
+        "ear_hooks_or_wings": true,
+        "codec": "SBC/AAC"
+      },
+      "reviews": {
+        "count": 139,
+        "avg_rating": 4.29,
+        "aspect_positive_share": {
+          "sound": 0.62,
+          "noise_cancelling": null,
+          "battery": 0.8,
+          "comfort": 0.68,
+          "call_quality": 0.6,
+          "durability": 0.63,
+          "fit_security": 0.8
+        },
+        "aspect_mentions": {
+          "sound": 41,
+          "noise_cancelling": 0,
+          "battery": 11,
+          "comfort": 24,
+          "call_quality": 17,
+          "durability": 32,
+          "fit_security": 16
+        },
+        "helpful_votes": 108,
+        "share_last_12_months": 0.35
+      }
+    },
+    {
+      "id": "p32",
+      "name": "Brisa Lite",
+      "brand": "Brisa",
+      "price_usd": 214,
+      "tier": "premium",
+      "color": "#f26419",
+      "specs": {
+        "anc_level": 2,
+        "battery_hours": 10,
+        "case_battery_hours": 40,
+        "ip_rating": "IPX7",
+        "weight_g": 5.1,
+        "mics_per_bud": 3,
+        "multipoint": false,
+        "ear_hooks_or_wings": true,
+        "codec": "aptX Adaptive"
+      },
+      "reviews": {
+        "count": 75,
+        "avg_rating": 4.31,
+        "aspect_positive_share": {
+          "sound": 0.7,
+          "noise_cancelling": 0.6,
+          "battery": 0.78,
+          "comfort": 0.66,
+          "call_quality": 0.62,
+          "durability": 0.73,
+          "fit_security": 0.75
+        },
+        "aspect_mentions": {
+          "sound": 22,
+          "noise_cancelling": 25,
+          "battery": 16,
+          "comfort": 22,
+          "call_quality": 14,
+          "durability": 20,
+          "fit_security": 17
+        },
+        "helpful_votes": 56,
+        "share_last_12_months": 0.64
+      }
+    }
+  ]
+}

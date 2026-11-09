@@ -1,0 +1,62 @@
+{
+  "commute": {
+    "pool_size": 11,
+    "overlap_at_3": 1,
+    "kendall_tau_full_ranking": -0.055,
+    "top3_H": [
+      "p15",
+      "p21",
+      "p22"
+    ],
+    "top3_A": [
+      "p09",
+      "p28",
+      "p22"
+    ],
+    "top3_HY": [
+      "p22",
+      "p09",
+      "p21"
+    ]
+  },
+  "gym": {
+    "pool_size": 17,
+    "overlap_at_3": 0,
+    "kendall_tau_full_ranking": -0.015,
+    "top3_H": [
+      "p07",
+      "p13",
+      "p21"
+    ],
+    "top3_A": [
+      "p22",
+      "p18",
+      "p29"
+    ],
+    "top3_HY": [
+      "p29",
+      "p18",
+      "p22"
+    ]
+  },
+  "calls": {
+    "pool_size": 25,
+    "overlap_at_3": 0,
+    "kendall_tau_full_ranking": 0.153,
+    "top3_H": [
+      "p02",
+      "p07",
+      "p29"
+    ],
+    "top3_A": [
+      "p18",
+      "p05",
+      "p30"
+    ],
+    "top3_HY": [
+      "p07",
+      "p29",
+      "p02"
+    ]
+  }
+}

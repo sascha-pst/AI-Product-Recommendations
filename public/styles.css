@@ -1,0 +1,97 @@
+:root {
+  --bg: #f6f4ef;
+  --surface: #ffffff;
+  --ink: #1c1b19;
+  --muted: #66625a;
+  --line: #e4e0d6;
+  --accent: #1f5f5b;
+  --accent-ink: #ffffff;
+  --accent-soft: #e3efed;
+  --radius: 14px;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+header.site { background: var(--surface); border-bottom: 1px solid var(--line); }
+header.site .wrap { display: flex; align-items: center; gap: 8px; height: 56px; }
+.logo { color: var(--accent); font-size: 22px; }
+.brand { font-weight: 700; letter-spacing: -0.01em; }
+.crumb { color: var(--muted); font-size: 14px; margin-left: 6px; padding-left: 10px; border-left: 1px solid var(--line); }
+
+main { padding-top: 28px; padding-bottom: 64px; }
+.loading, .error { color: var(--muted); }
+.sample-note { font-size: 13px; color: var(--muted); background: #efece4; border-radius: 8px; padding: 8px 12px; margin: 0 0 20px; }
+
+.scenario { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; margin-bottom: 32px; }
+.eyebrow { margin: 0 0 6px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); }
+.scenario h1 { margin: 0; font-size: 19px; font-weight: 500; line-height: 1.45; }
+
+.picks-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
+.picks-head h2 { margin: 0; font-size: 22px; letter-spacing: -0.01em; }
+/* One neutral style for every label so only the words and icon differ between arms. */
+.source-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px 5px 9px; }
+.source-badge svg { width: 18px; height: 18px; fill: none; stroke: var(--ink); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+
+.picks { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px 20px; }
+.card-top { display: grid; grid-template-columns: 56px 1fr auto; gap: 14px; align-items: center; }
+.bud { width: 56px; height: 56px; display: block; }
+.card-title h3 { margin: 0; font-size: 18px; line-height: 1.25; }
+.rank { font-size: 12px; font-weight: 700; color: var(--muted); }
+.price { margin: 2px 0 0; color: var(--muted); font-variant-numeric: tabular-nums; }
+.match { align-self: start; font-size: 13px; font-weight: 700; color: var(--accent); background: var(--accent-soft); border-radius: 999px; padding: 4px 10px; white-space: nowrap; }
+.why { margin: 14px 0 10px; font-size: 15.5px; }
+
+details summary { cursor: pointer; color: var(--accent); font-size: 14px; font-weight: 600; width: max-content; padding: 4px 0; }
+.specs { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 6px 18px; margin: 8px 0 4px; font-size: 14px; }
+.specs div { display: flex; justify-content: space-between; gap: 8px; border-bottom: 1px dashed var(--line); padding: 4px 0; }
+.specs dt { color: var(--muted); }
+.specs dd { margin: 0; font-weight: 500; text-align: right; }
+
+button { font: inherit; cursor: pointer; }
+button.choose { margin-top: 12px; width: 100%; min-height: 46px; border: 0; border-radius: 10px; background: var(--accent); color: var(--accent-ink); font-weight: 600; font-size: 16px; }
+button.choose:hover { filter: brightness(1.08); }
+button.secondary { background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 10px; min-height: 42px; padding: 0 16px; font-weight: 600; }
+button:focus-visible, summary:focus-visible, select:focus-visible { outline: 3px solid #f0b429; outline-offset: 2px; }
+.link { background: none; border: 0; color: var(--accent); font-weight: 600; padding: 8px 0; text-decoration: underline; text-underline-offset: 3px; }
+
+.others { margin-top: 28px; }
+#other-list { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 8px; }
+.row { display: grid; grid-template-columns: 44px 1fr auto; gap: 12px; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.row .bud { width: 44px; height: 44px; }
+.row-main strong { display: block; }
+.row-main .price { display: block; margin: 0; font-size: 14px; }
+.row button.choose.secondary { margin-top: 0; width: auto; min-height: 40px; font-size: 14px; }
+
+dialog { border: 0; border-radius: var(--radius); padding: 24px; max-width: 420px; width: calc(100% - 40px); box-shadow: 0 20px 60px rgba(0,0,0,.25); }
+dialog::backdrop { background: rgba(28,27,25,.45); }
+dialog h2 { margin: 0 0 6px; font-size: 20px; }
+dialog p { margin: 0 0 18px; color: var(--muted); }
+.dlg-actions { display: flex; gap: 10px; justify-content: flex-end; }
+.dlg-actions .choose { width: auto; margin: 0; padding: 0 18px; min-height: 42px; }
+
+.done { text-align: center; padding: 48px 0; }
+.done h1 { font-size: 24px; margin: 0 0 8px; }
+.done p { color: var(--muted); }
+
+#preview-bar { position: sticky; top: 0; z-index: 10; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; padding: 10px 20px;
+  background: #2b2a27; color: #f3f1ea; font-size: 13px; }
+#preview-bar select { font: inherit; margin-left: 4px; padding: 3px 6px; border-radius: 6px; border: 0; }
+.pv-truth b { color: #ffd479; }
+.pv-log summary { color: #cfe9e6; }
+.pv-log ol { margin: 6px 0 0; padding-left: 18px; max-height: 140px; overflow: auto; font-family: ui-monospace, Menlo, monospace; font-size: 12px; }
+
+@media (max-width: 520px) {
+  .card-top { grid-template-columns: 48px 1fr; }
+  .bud { width: 48px; height: 48px; }
+  .match { grid-column: 2; justify-self: start; }
+  .scenario h1 { font-size: 17px; }
+}
+@media (prefers-reduced-motion: no-preference) { button.choose { transition: filter .15s; } }
