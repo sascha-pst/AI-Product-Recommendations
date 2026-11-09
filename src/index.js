@@ -58,6 +58,11 @@ export default {
       return json({ stored: env.DB ? rows.length : 0 });
     }
 
+    // The demo page reveals true sources: staging only, never in front of participants.
+    if ((url.pathname === "/demo" || url.pathname === "/demo.html") && env.ALLOW_PREVIEW !== "true") {
+      return new Response("Not found", { status: 404 });
+    }
+
     // Static assets (index.html, app.js, styles.css). Allow Qualtrics to frame the page.
     const res = await env.ASSETS.fetch(request);
     const out = new Response(res.body, res);

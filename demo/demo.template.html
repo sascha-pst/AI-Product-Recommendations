@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Pickwise demo: customer reviews vs. an AI reviewer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #eef1f5;
+  --sheet: #ffffff;
+  --ink: #18202f;
+  --muted: #5b6577;
+  --rule: #d8dde6;
+  --human: #b8701f;      /* customer reviews */
+  --human-soft: #f7ead8;
+  --ai: #5a49d6;         /* AI reviewer */
+  --ai-soft: #e7e4fb;
+  --display: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --body: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+html { background: var(--paper); color: var(--ink); font: 400 16px/1.55 var(--body); -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+a { color: inherit; }
+.page { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+:focus-visible { outline: 3px solid #f2b705; outline-offset: 2px; border-radius: 4px; }
+
+/* top */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; font-size: 14px; color: var(--muted); }
+.top strong { color: var(--ink); font-family: var(--display); font-size: 18px; font-weight: 700; letter-spacing: -.01em; }
+.sample { background: var(--sheet); border: 1px solid var(--rule); border-radius: 999px; padding: 4px 12px; }
+
+/* hero */
+.hero { padding: 44px 0 30px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px; align-items: end; }
+h1 { font-family: var(--display); font-weight: 700; font-size: clamp(38px, 5.4vw, 66px); line-height: .98; letter-spacing: -.025em; margin: 0; }
+h1 .h { color: var(--human); } h1 .a { color: var(--ai); }
+.lede { margin: 0; font-size: 18px; color: var(--muted); max-width: 46ch; }
+
+/* section heads */
+h2 { font-family: var(--display); font-weight: 600; font-size: 30px; line-height: 1.1; letter-spacing: -.015em; margin: 0 0 6px; }
+.sub { margin: 0 0 22px; color: var(--muted); max-width: 70ch; }
+section { padding: 36px 0; border-top: 1px solid var(--rule); }
+
+/* scenario tabs */
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.tab { font: 600 15px var(--body); padding: 9px 16px; border-radius: 999px; border: 1px solid var(--rule); background: var(--sheet); color: var(--ink); cursor: pointer; }
+.tab[aria-selected="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.brief { font-size: 19px; max-width: 64ch; margin: 0 0 24px; }
+
+/* comparison */
+.compare { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+.col h3 { display: flex; align-items: center; gap: 8px; font-family: var(--display); font-size: 21px; font-weight: 600; margin: 0 0 4px; }
+.col .how { margin: 0 0 14px; font-size: 14px; color: var(--muted); min-height: 3em; }
+.swatch { width: 14px; height: 14px; border-radius: 4px; flex: none; }
+.sw-h { background: var(--human); } .sw-a { background: var(--ai); }
+.sw-hy { background: linear-gradient(135deg, var(--human) 50%, var(--ai) 50%); }
+.col ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.pick { background: var(--sheet); border-radius: 10px; padding: 14px 16px; border-left: 4px solid var(--rule); }
+.col-h .pick { border-left-color: var(--human); }
+.col-a .pick { border-left-color: var(--ai); }
+.col-hy .pick { border-left-color: var(--ink); }
+.pick-head { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.pick-name { font-weight: 600; }
+.pick-name small { color: var(--muted); font-weight: 400; margin-right: 6px; font-variant-numeric: tabular-nums; }
+.pick-price { color: var(--muted); font-variant-numeric: tabular-nums; }
+.pick p { margin: 8px 0 0; font-size: 14px; color: #364053; }
+.both { display: inline-block; margin-top: 8px; font-size: 12.5px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: #e9edf3; }
+.stats { display: flex; flex-wrap: wrap; gap: 12px 36px; margin-top: 22px; padding: 16px 20px; background: var(--sheet); border-radius: 10px; }
+.stat b { display: block; font-family: var(--display); font-size: 28px; font-weight: 700; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.stat span { font-size: 14px; color: var(--muted); }
+
+/* label test: the signature piece */
+.lab { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 36px; align-items: start; }
+.grid { display: grid; grid-template-columns: 120px minmax(0, 1fr) minmax(0, 1fr); gap: 8px; }
+.axis { font-size: 13px; color: var(--muted); display: flex; align-items: flex-end; padding: 0 4px 4px; }
+.axis.row { align-items: center; padding: 0 8px 0 0; justify-content: flex-end; text-align: right; }
+.axis b { color: var(--ink); }
+.cell { text-align: left; font: inherit; color: inherit; cursor: pointer; border: 2px solid transparent; border-radius: 12px; padding: 14px 16px; min-height: 108px; background: var(--sheet); display: flex; flex-direction: column; justify-content: space-between; gap: 10px; }
+.cell:hover { border-color: var(--rule); }
+.cell.wrong { background: repeating-linear-gradient(135deg, #fff 0 10px, #fbf3f3 10px 20px); }
+.cell[aria-pressed="true"] { border-color: var(--ink); }
+.cell .arm { font-family: var(--display); font-weight: 700; font-size: 15px; }
+.cell .what { font-size: 14px; color: #364053; }
+.chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; padding: 3px 9px; border-radius: 999px; max-width: 100%; }
+.chip-h { background: var(--human-soft); color: #7c4710; }
+.chip-a { background: var(--ai-soft); color: #3b2fa0; }
+.chip-n { background: #e9edf3; color: var(--muted); }
+.match-ok { color: var(--muted); }
+.mismatch { font-size: 12.5px; color: #8a2d2d; font-weight: 600; }
+.extra { grid-column: 2 / 4; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; }
+.lab-note { margin: 18px 0 0; font-size: 14px; color: var(--muted); max-width: 62ch; }
+
+/* phone */
+.phone { position: sticky; top: 20px; border-radius: 34px; background: var(--ink); padding: 12px; box-shadow: 0 30px 60px -30px rgba(24,32,47,.55); }
+.screen { border-radius: 24px; background: #f6f4ef; height: 640px; overflow: auto; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; color: #1c1b19; }
+.scr-bar { position: sticky; top: 0; background: #fff; border-bottom: 1px solid #e4e0d6; padding: 12px 16px; font-weight: 700; font-size: 14px; display: flex; gap: 8px; align-items: center; z-index: 1; }
+.scr-bar i { color: #1f5f5b; font-style: normal; }
+.scr { padding: 14px; }
+.scr-sit { background: #fff; border: 1px solid #e4e0d6; border-radius: 12px; padding: 12px; font-size: 13.5px; margin-bottom: 14px; }
+.scr-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px; margin-bottom: 10px; }
+.scr-head strong { font-size: 16px; }
+.scr-badge { font-size: 11.5px; border: 1px solid #e4e0d6; background: #fff; border-radius: 999px; padding: 3px 9px; }
+.scr-card { background: #fff; border: 1px solid #e4e0d6; border-radius: 12px; padding: 12px; margin-bottom: 10px; }
+.scr-card .t { display: flex; justify-content: space-between; gap: 8px; }
+.scr-card .t b { font-size: 14.5px; }
+.scr-card .m { font-size: 11.5px; font-weight: 700; color: #1f5f5b; background: #e3efed; border-radius: 999px; padding: 2px 8px; white-space: nowrap; height: max-content; }
+.scr-card .p { color: #66625a; font-size: 13px; }
+.scr-card p { font-size: 13px; margin: 8px 0 10px; }
+.scr-card .btn { background: #1f5f5b; color: #fff; text-align: center; border-radius: 8px; padding: 9px; font-weight: 600; font-size: 13.5px; }
+.truth { margin: 14px 4px 0; color: #c9cfdb; font-size: 13px; }
+.truth b { color: #fff; }
+
+/* flow */
+.flow { list-style: none; counter-reset: s; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.flow li { counter-increment: s; border-top: 3px solid var(--ink); padding-top: 12px; }
+.flow li::before { content: counter(s); font-family: var(--display); font-weight: 700; font-size: 34px; line-height: 1; display: block; margin-bottom: 8px; }
+.flow b { display: block; margin-bottom: 4px; }
+.flow span { font-size: 14.5px; color: var(--muted); }
+
+footer { padding: 28px 0 48px; border-top: 1px solid var(--rule); font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+@media (max-width: 980px) {
+  .hero { grid-template-columns: 1fr; gap: 18px; padding-top: 24px; }
+  .compare { grid-template-columns: 1fr; }
+  .lab { grid-template-columns: minmax(0, 1fr); }
+  .phone { position: static; max-width: 380px; }
+  .flow { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .page { padding: 0 16px; }
+  .grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .cell { padding: 12px; }
+  .chip { font-size: 12px; border-radius: 8px; }
+  .axis.corner { display: none; }
+  .axis.row { grid-column: 1 / 3; justify-content: flex-start; text-align: left; padding: 8px 0 0; }
+  .extra { grid-column: 1 / 3; grid-template-columns: 1fr; }
+  .flow { grid-template-columns: 1fr; }
+  .top .sample { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="top">
+    <strong>Pickwise</strong>
+    <span class="sample" id="sample-note">Sample products and review data, all fictional</span>
+  </header>
+
+  <div class="hero">
+    <h1>Do shoppers trust <span class="h">other buyers</span> or <span class="a">an AI reviewer</span>?</h1>
+    <p class="lede">Pickwise recommends earbuds two ways: from customer reviews, and from an AI that reads only the spec sheet. A Qualtrics experiment then tests whether people trust the picks themselves, or just the label on them.</p>
+  </div>
+
+  <section aria-labelledby="cmp-h">
+    <h2 id="cmp-h">Same shopper, different picks</h2>
+    <p class="sub">Both engines choose from the same products within the shopper's budget, and their explanations are written by one shared template, so the wording never gives the source away.</p>
+    <div class="tabs" role="tablist" aria-label="Shopping scenario" id="tabs"></div>
+    <p class="brief" id="brief"></p>
+    <div class="compare" id="compare"></div>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section aria-labelledby="lab-h">
+    <h2 id="lab-h">The label test</h2>
+    <p class="sub">Each participant sees one arm. Crossing where the picks came from with what they're labeled as separates trust in the content from trust in the label. Select an arm to see that participant's screen.</p>
+    <div class="lab">
+      <div>
+        <div class="grid" id="grid"></div>
+        <p class="lab-note">The two striped cells label picks with the wrong source. Those arms need ethics approval, and every participant learns the true source in the debrief.</p>
+      </div>
+      <div class="phone" aria-label="Participant screen preview">
+        <div class="screen" id="screen"></div>
+        <p class="truth" id="truth"></p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="flow-h">
+    <h2 id="flow-h">How one session runs</h2>
+    <p class="sub">Picks are generated ahead of time, so everyone in an arm sees exactly the same screen.</p>
+    <ol class="flow">
+      <li><b>Qualtrics assigns an arm</b><span>Randomizers set the arm and scenario, evenly across participants.</span></li>
+      <li><b>The page shows three picks</b><span>A Cloudflare Worker serves that arm's picks inside the survey.</span></li>
+      <li><b>The choice goes back</b><span>The pick, its rank and time to decide return to Qualtrics.</span></li>
+      <li><b>Data joins on response ID</b><span>Survey answers meet clicks and dwell time for analysis.</span></li>
+    </ol>
+  </section>
+
+  <footer>
+    <span id="version"></span>
+    <a href="https://github.com/sascha-pst/ai-product-recommendations">Code on GitHub</a>
+  </footer>
+</div>
+
+<script>
+const DATA = /*__DATA__*/null;
+/*__RESOLVE__*/
+
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+const recs = DATA.recs, evals = DATA.evals;
+const SC = Object.keys(recs.scenarios);
+const state = { scenario: SC[0], arm: "1" };
+
+const COLS = [
+  { key: "H", cls: "col-h", sw: "sw-h", name: "Customer reviews", how: "Ranks by star rating and what owners say about the features this shopper needs." },
+  { key: "A", cls: "col-a", sw: "sw-a", name: "AI reviewer", how: "Rates each product from its listing and specs only. It never sees a review." },
+  { key: "HY", cls: "col-hy", sw: "sw-hy", name: "Hybrid", how: "Merges the two rankings, so a product both sources like rises to the top." },
+];
+
+function renderTabs() {
+  $("#tabs").innerHTML = SC.map((id) =>
+    `<button class="tab" role="tab" aria-selected="${id === state.scenario}" data-sc="${id}">${esc(recs.scenarios[id].title)}</button>`).join("");
+  document.querySelectorAll(".tab").forEach((b) => b.onclick = () => { state.scenario = b.dataset.sc; renderAll(); });
+}
+
+function renderCompare() {
+  const sc = recs.scenarios[state.scenario];
+  $("#brief").textContent = sc.brief;
+  const top = (k) => new Set(sc.engines[k].map((p) => p.product_id));
+  const h = top("H"), a = top("A");
+  $("#compare").innerHTML = COLS.map((c) => `
+    <div class="col ${c.cls}">
+      <h3><span class="swatch ${c.sw}"></span>${c.name}</h3>
+      <p class="how">${c.how}</p>
+      <ol>${sc.engines[c.key].map((p) => {
+        const pr = recs.products[p.product_id];
+        const shared = c.key !== "HY" && h.has(p.product_id) && a.has(p.product_id);
+        return `<li class="pick">
+          <div class="pick-head"><span class="pick-name"><small>${p.rank}</small>${esc(pr.name)}</span><span class="pick-price">$${pr.price_usd}</span></div>
+          <p>${esc(p.rationale)}</p>
+          ${shared ? `<span class="both">Picked by both engines</span>` : ""}
+        </li>`; }).join("")}</ol>
+    </div>`).join("");
+  const ev = evals[state.scenario];
+  const tau = ev.kendall_tau_full_ranking;
+  $("#stats").innerHTML = `
+    <div class="stat"><b>${ev.overlap_at_3} of 3</b><span>top picks in common</span></div>
+    <div class="stat"><b>${tau > 0 ? "+" : ""}${tau.toFixed(2)}</b><span>ranking agreement (Kendall's τ, −1 to +1)</span></div>
+    <div class="stat"><b>${ev.pool_size}</b><span>products in budget, shared by both</span></div>`;
+}
+
+const ARMS = {
+  1: { content: "H", label: "human" }, 2: { content: "H", label: "ai" },
+  3: { content: "A", label: "human" }, 4: { content: "A", label: "ai" },
+  5: { content: "HY", label: "both" }, 6: { content: "balanced", label: "none" },
+};
+function chip(kind) {
+  if (kind === "human") return `<span class="chip chip-h">Labeled: customer reviews</span>`;
+  if (kind === "ai") return `<span class="chip chip-a">Labeled: AI reviewer</span>`;
+  if (kind === "both") return `<span class="chip chip-h">Labeled: reviews</span> <span class="chip chip-a">and AI</span>`;
+  return `<span class="chip chip-n">No label</span>`;
+}
+function cell(arm, what) {
+  const d = ARMS[arm];
+  const wrong = (d.content === "H" && d.label === "ai") || (d.content === "A" && d.label === "human");
+  return `<button class="cell${wrong ? " wrong" : ""}" data-arm="${arm}" aria-pressed="${state.arm === String(arm)}">
+    <span class="arm">Arm ${arm}</span>
+    <span class="what">${what}</span>
+    <span>${chip(d.label)}${wrong ? ` <span class="mismatch">wrong source</span>` : ""}</span>
+  </button>`;
+}
+function renderGrid() {
+  $("#grid").innerHTML = `
+    <div class="axis corner"></div>
+    <div class="axis"><span>Labeled as <b>customer reviews</b></span></div>
+    <div class="axis"><span>Labeled as <b>AI reviewer</b></span></div>
+    <div class="axis row"><span>Picks from <b>customer reviews</b></span></div>
+    ${cell(1, "Review picks, honestly labeled")}${cell(2, "Review picks, labeled as AI")}
+    <div class="axis row"><span>Picks from <b>AI reviewer</b></span></div>
+    ${cell(3, "AI picks, labeled as reviews")}${cell(4, "AI picks, honestly labeled")}
+    <div class="axis row"><span>Comparison arms</span></div>
+    <div class="extra">${cell(5, "Hybrid picks, both sources named")}${cell(6, "Reviews or AI, half each, no label")}</div>`;
+  document.querySelectorAll(".cell").forEach((b) => b.onclick = () => { state.arm = b.dataset.arm; renderGrid(); renderScreen(); });
+}
+
+function renderScreen() {
+  const v = resolveView(recs, { rid: "demo-participant", arm: state.arm, scenario: state.scenario });
+  const p = v.public;
+  $("#screen").innerHTML = `
+    <div class="scr-bar"><i>◐</i>Pickwise</div>
+    <div class="scr">
+      <div class="scr-sit">${esc(p.brief)}</div>
+      <div class="scr-head"><strong>Top 3 picks for you</strong>${p.label_text ? `<span class="scr-badge">${esc(p.label_text)}</span>` : ""}</div>
+      ${p.picks.map((x) => `<div class="scr-card">
+        <div class="t"><div><b>${esc(x.product.name)}</b><div class="p">$${x.product.price_usd}</div></div><span class="m">${x.match_score}% match</span></div>
+        <p>${esc(x.rationale)}</p><div class="btn">Choose this pair</div></div>`).join("")}
+    </div>`;
+  $("#screen").scrollTop = 0;
+  const src = { H: "customer reviews", A: "the AI reviewer", HY: "both engines (hybrid)" }[v.server.content_source];
+  $("#truth").innerHTML = `Arm ${p.arm}. These picks actually came from <b>${src}</b>.`;
+}
+
+function renderAll() { renderTabs(); renderCompare(); renderScreen(); }
+renderGrid();
+renderAll();
+if (!recs.sample_data) $("#sample-note").remove();
+$("#version").textContent = `Stimuli version ${recs.stimuli_version}`;
+</script>
+</body>
+</html>

@@ -75,6 +75,12 @@ npx wrangler d1 execute rec-engine --remote --json --command "SELECT * FROM even
 ```
 - Tip: join to the Qualtrics export on `ResponseID = rid`.
 
+**Stakeholder demo**
+```bash
+npm run build:demo        # public/demo.html, served at /demo on staging only
+```
+- Tip: production returns 404 for `/demo`, because the page shows which engine made each pick.
+
 **Researcher preview (no server)**
 ```bash
 npm run build:preview     # dist/preview.html
