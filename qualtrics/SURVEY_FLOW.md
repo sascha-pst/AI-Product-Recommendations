@@ -1,28 +1,40 @@
-# Qualtrics setup
+# Study v2: two-group AI disclosure experiment
 
-## Survey Flow
+Use AI_Recommendation_Labels_Repaired.qsf as a new pilot survey, preserving the original.
 
-1. **Embedded Data** (top of flow): `arm`, `scenario`, `chosen_product`, `chosen_rank`, `chosen_from_recs`, `time_to_choice_ms` (all blank).
-2. Block: Consent.
-3. Block: Screener (bought earbuds or electronics online in the last 12 months).
-4. Block: Covariates (AI attitudes scale, earbud knowledge, last purchase).
-5. **Randomizer** — randomly present 1 of 6, check *Evenly Present Elements*. Each element is an Embedded Data element setting `arm` = 1 … 6.
-6. **Randomizer** — randomly present 1 of 3, *Evenly Present Elements*. Each sets `scenario` = `commute` / `gym` / `calls`.
-7. Block: Recommendation task — one Text/Graphic question with `embed_question.js`.
-8. Block: Outcomes (trust scale, usefulness, choice confidence, willingness to pay).
-9. Block: Manipulation check ("Where did the recommendations come from?") and attention check.
-10. Block: Open-ended "Why did you choose this pair?"
-11. Block: Debrief — tells everyone the true source. Pipe it with Display Logic on `arm`:
-    - arms 1, 2 → "came from customer reviews"; arms 3, 4 → "came from an AI reviewer"; arm 5 → both; arm 6 → the source is in the data file (`sessions.content_source`).
+1. Declare study_id=ai-disclosure-v1, scenario=commute, task_completed=0; declare arm, choice fields and stimuli_version.
+2. Consent; end the survey unless Yes is selected.
+3. Online-shopping screener; end unless Yes is selected.
+4. Randomizer: randomly present **1** element, Evenly Present Elements enabled:
+   - Separate Embedded Data element: arm=1 (Recommended).
+   - Separate Embedded Data element: arm=2 (Recommended by AI).
+5. Add the authenticated server-side launch Web Service described in [verified session setup](VERIFIED_SESSIONS.md) after the randomizer and before the task. Map its response to `launch_token`. The imported QSF fails closed until this account-specific step is configured.
+6. Task QID19 contains embed_question.js; Next stays hidden until a server-confirmed choice message from the exact iframe, matching respondent, condition and study.
+7. Trust, usefulness and confidence.
+8. Open-ended choice explanation.
+9. Disclosure and attention checks.
+10. Background measures, including post-task AI attitudes.
+11. Pilot debrief describing fictional stimuli and the offline rubric.
 
-## Joining the data
+Both groups receive exactly the same Engine A content for commute. This supersedes the prior six-arm instructions. Do not run the repaired survey against the old deployment.
 
-Qualtrics `ResponseID` = `rid` in the D1 `sessions` and `events` tables.
+## Configure and validate before piloting
 
-## Redirect alternative
+- Apply schema.sql to the staging D1 binding and deploy the repaired Worker to staging.
+- Set BASE in QID19 JavaScript to the exact staging Worker URL returned by deployment. The existing URL in the file is a configuration starting point, not confirmation of a repaired live deployment.
+- Use `preview: true` in the authenticated Web Service body, ALLOW_PREVIEW=true on staging, and STUDY_OPEN=false. A query parameter alone cannot authorize pilot access.
+- Confirm custom JavaScript is available for the Qualtrics account; after QSF import verify QID19 retained its JavaScript and both end-survey branches appear.
+- Preview two distinct respondents in different arms. Verify wording is the only stimulus difference and Next is unavailable before confirming a choice.
+- Verify refreshing keeps the assignment and saved choice; changing arm in the URL produces an error.
+- Test an alternative (nonrecommended) product and verify chosen_rank=0, chosen_from_recs=0.
+- Confirm the exported task_completed=1 and chosen fields match study_assignments.choice_json in D1. Optional events live in study_events.
+- A failed save or unavailable storefront must not permit the participant to answer outcome questions as if the task succeeded. Log pilot failures separately.
+- The QSF includes only a basic consent question from the draft; finalize institution-required consent details and eligibility before recruitment.
 
-If iframes are blocked on a device, send participants to the site with a return link instead:
+## Main-study release
 
-`https://rec-engine.YOUR-SUBDOMAIN.workers.dev/?rid=${e://Field/ResponseID}&arm=${e://Field/arm}&scenario=${e://Field/scenario}&return=<URL-encoded anonymous link to a second survey section>`
+Generate genuine AI ratings using the existing Claude pipeline, then build_recs.py --engine-a claude. Review/freeze stimuli, update the debrief to the actual verified provenance, set `preview: false` in the launch Web Service, update BASE, and set ALLOW_PREVIEW=false on production. Only after approval and a separate pilot should STUDY_OPEN=true be set. Fictional stimuli require explicit protocol approval; ALLOW_SAMPLE_DATA=false blocks them by default. Changing versions after first assignment returns 409, rather than silently changing a respondent's stimuli.
 
-The site appends `choice`, `rank`, `from_recs` and `ttc` to the return URL. Capture them as embedded data fields of the same names at the top of the flow. Only `*.qualtrics.com` return URLs are honored.
+## Data export
+
+Join Qualtrics ResponseID to study_assignments.rid, filtering study_id='ai-disclosure-v1'. Use study_assignments.choice_json as the authoritative final choice; do not infer confirmed choices from optional telemetry. The old sessions/events tables remain intact for the previous experiment. Never publish participant exports or session tokens in the public repository.
