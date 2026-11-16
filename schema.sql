@@ -55,3 +55,18 @@ CREATE TABLE IF NOT EXISTS study_events (
   server_ts INTEGER NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_study_events_rid ON study_events(study_id,rid);
+
+-- Issued only by an authenticated Qualtrics Survey Flow Web Service request.
+CREATE TABLE IF NOT EXISTS verified_study_sessions (
+  study_id TEXT NOT NULL,
+  rid TEXT NOT NULL,
+  survey_id TEXT NOT NULL,
+  arm TEXT NOT NULL CHECK (arm IN ('1','2')),
+  scenario TEXT NOT NULL CHECK (scenario = 'commute'),
+  stimuli_version TEXT NOT NULL,
+  token TEXT NOT NULL UNIQUE,
+  preview INTEGER NOT NULL CHECK (preview IN (0,1)),
+  created_at INTEGER NOT NULL,
+  expires_at INTEGER NOT NULL,
+  PRIMARY KEY (study_id,rid)
+);

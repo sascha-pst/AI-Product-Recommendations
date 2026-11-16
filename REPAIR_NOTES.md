@@ -21,11 +21,15 @@ Requires Node 22+ with node:sqlite and Python 3.12. No API keys or model calls a
 
 1. Import qualtrics/AI_Recommendation_Labels_Repaired.qsf as a NEW Qualtrics survey; inspect the randomizer, branches and QID19 JavaScript. Structural tests cannot substitute for a real Qualtrics import/preview.
 2. Configure the existing Cloudflare account/database IDs in wrangler.toml. Apply schema.sql to the staging D1 database before deploying. Existing tables are preserved.
-3. Deploy the repaired code to staging using the existing repository's workflow/tooling; set the returned exact URL as BASE in QID19. Keep PILOT=true and ALLOW_PREVIEW=true on staging. Keep STUDY_OPEN=false.
+3. Deploy the repaired code to staging using the existing repository's workflow/tooling; set the returned exact URL as BASE in QID19. Configure the authenticated launch Web Service using qualtrics/VERIFIED_SESSIONS.md; use preview=true in its JSON body and ALLOW_PREVIEW=true on staging. Keep STUDY_OPEN=false.
 4. Complete both arms, refresh and failed-save checks, and export a test response to verify joining. Main-study collection remains closed until verified AI provenance and release settings are completed (see qualtrics/SURVEY_FLOW.md).
 
 The bundled QSF is a PROTOTYPE PILOT, with an explicit debrief about fictional products and the current offline rubric. It is not a research-ready survey with final institutional consent wording. Main-study debrief wording must be updated after verified AI generation. Do not collect study evidence from an AI label applied to an unverified rubric as though it were a genuine AI disclosure.
 
 ## Deployment status
 
-Changes were prepared and tested locally. GitHub write operations previously returned 403; no branch, PR, live Cloudflare deployment, or live Qualtrics edit is claimed. Apply storefront-repair.patch at the repository root with git apply, review, and deploy to staging. The patch includes QSF and the checks. No secrets or participant response data are bundled.
+The repair is maintained in PR #1 on branch `codex/survey-storefront-repair`. No live Cloudflare deployment or live Qualtrics edit is included. Review the PR and follow the staging installation and verified-session setup before publishing. No secrets or participant response data are bundled.
+
+## Verified session update
+
+Every engine API request now requires a credential issued through an authenticated server-side Qualtrics Web Service. See [required configuration and lifecycle](qualtrics/VERIFIED_SESSIONS.md). The QSF intentionally fails closed until that service is configured. Reloads reuse the same task, including its saved completion.

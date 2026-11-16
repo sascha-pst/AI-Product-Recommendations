@@ -8,6 +8,8 @@ binding = "ASSETS"
 run_worker_first = ["/api/*", "/", "/index.html", "/demo", "/demo.html"]
 
 [vars]
+# Set the real survey ID; keep the launch secret in `wrangler secret`, never here.
+QUALTRICS_SURVEY_ID = ""
 # Set to "true" only on a staging deploy: lets ?preview=1 show the true source.
 ALLOW_PREVIEW = "false"
 STUDY_OPEN = "false"
@@ -22,6 +24,7 @@ database_id = "REPLACE_WITH_ID_FROM_wrangler_d1_create"
 [env.staging]
 name = "rec-engine-staging"
 [env.staging.vars]
+QUALTRICS_SURVEY_ID = ""
 ALLOW_PREVIEW = "true"
 STUDY_OPEN = "false"
 ALLOW_SAMPLE_DATA = "false"

@@ -12,5 +12,7 @@ assert q['QID19']['QuestionJS']==(r/'qualtrics/embed_question.js').read_text()
 assert 'event.source !== frame.contentWindow' in q['QID19']['QuestionJS']
 assert len(set(x['DataExportTag'] for x in q.values()))==len(q)
 assert all('Create New Field' not in z['Field'] for x in f if x['Type']=='EmbeddedData' for z in x['EmbeddedData'])
+assert any(z['Field']=='launch_token' and z.get('Value')=='' for x in f if x['Type']=='EmbeddedData' for z in x['EmbeddedData'])
+assert 'QUALTRICS_LAUNCH_SECRET' not in q['QID19']['QuestionJS']
 assert d['SurveyEntry']['SurveyStatus']=='Inactive'
 print('QSF structural checks passed; Qualtrics import/browser preview still required.')

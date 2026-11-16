@@ -4,8 +4,8 @@
   Qualtrics.SurveyEngine.addOnReady(function () {
     var q = this;
     var BASE = 'https://rec-engine.sashaschaps.workers.dev';
-    var PILOT = true; // Staging only. Set false for the verified main study.
     var rid = '${e://Field/ResponseID}';
+    var launchToken = '${e://Field/launch_token}';
     var arm = '${e://Field/arm}';
     var scenario = '${e://Field/scenario}';
     var finished = false;
@@ -14,7 +14,7 @@
     status.setAttribute('role', 'status');
     status.textContent = 'Load the shopping task below and confirm your choice to continue.';
     q.getQuestionContainer().appendChild(status);
-    if (!/^[A-Za-z0-9_.:-]{1,128}$/.test(rid) || !/^[12]$/.test(arm) || scenario !== 'commute') {
+    if (!/^[a-f0-9]{64}$/.test(launchToken) || !/^[A-Za-z0-9_.:-]{1,128}$/.test(rid) || !/^[12]$/.test(arm) || scenario !== 'commute') {
       status.textContent = 'The survey assignment is missing. Please contact the researcher.';
       return;
     }
@@ -24,7 +24,7 @@
     src.searchParams.set('arm', arm);
     src.searchParams.set('scenario', scenario);
     src.searchParams.set('parent_origin', window.location.origin);
-    if (PILOT) src.searchParams.set('preview', '1');
+    src.hash = new URLSearchParams({launch_token: launchToken}).toString();
     frame.title = 'Product recommendation shopping task';
     frame.style.cssText = 'width:100%;height:1200px;border:0;border-radius:12px;background:#f6f4ef';
     var listener = function (event) {

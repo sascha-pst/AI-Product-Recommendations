@@ -1,23 +1,27 @@
 import { resolveView, EVENT_TYPES, STUDY_ID } from './resolve.js';
+import { validID, issueLaunch, verifiedSession } from './launch.js';
 const headers = {'content-type':'application/json; charset=utf-8','cache-control':'no-store'};
 const json = (body,status=200) => new Response(JSON.stringify(body),{status,headers});
-const validID = x => typeof x === 'string' && /^[A-Za-z0-9_.:-]{1,128}$/.test(x);
 export function makeWorker(recs) {
   return { async fetch(request,env) {
     const url = new URL(request.url);
     try {
+      if (url.pathname === '/api/launch' && request.method === 'POST') return await issueLaunch(request,env,recs,json);
       if (url.pathname === '/api/health') return json({ok:true,study_id:STUDY_ID,stimuli_version:recs.stimuli_version,sample_data:recs.sample_data,engine_a_mode:recs.engine_a?.mode,study_open:env.STUDY_OPEN==='true',db:!!env.DB});
       if (url.pathname === '/api/recs' && request.method === 'GET') {
         const rid=url.searchParams.get('rid'), arm=url.searchParams.get('arm'), scenario=url.searchParams.get('scenario');
         if (!validID(rid) || !['1','2'].includes(arm) || scenario!=='commute') return json({error:'Invalid study assignment. Return to Qualtrics; do not change the URL.'},400);
-        const preview=env.ALLOW_PREVIEW==='true' && url.searchParams.get('preview')==='1';
+        const verified=await verifiedSession(request,env,recs,rid);
+        if (!verified) return json({error:'A verified Qualtrics session is required'},403);
+        if (verified.arm!==arm || verified.scenario!==scenario) return json({error:'Survey assignment changed'},409);
+        const preview=!!verified.preview;
         if (!preview && (env.STUDY_OPEN!=='true' || recs.engine_a?.mode!=='claude' || (recs.sample_data && env.ALLOW_SAMPLE_DATA!=='true'))) return json({error:'The study is not open. Recommendations and study settings require researcher verification.'},503);
         if (!env.DB) return json({error:'Study storage is unavailable.'},503);
         const v=resolveView(recs,{rid,arm,scenario}).public;
         await env.DB.prepare(`INSERT OR IGNORE INTO study_assignments (study_id,rid,arm,scenario,content_source,label,stimuli_version,token,created_at) VALUES (?1,?2,?3,?4,'A',?5,?6,?7,?8)`)
-          .bind(STUDY_ID,rid,arm,scenario,v.label_key,v.stimuli_version,crypto.randomUUID(),Date.now()).run();
+          .bind(STUDY_ID,rid,arm,scenario,v.label_key,v.stimuli_version,verified.token,Date.now()).run();
         const session=await env.DB.prepare('SELECT * FROM study_assignments WHERE study_id=?1 AND rid=?2').bind(STUDY_ID,rid).first();
-        if (!session || session.arm!==arm || session.scenario!==scenario || session.stimuli_version!==v.stimuli_version) return json({error:'Assignment or stimulus version changed. Contact the researcher.'},409);
+        if (!session || session.token!==verified.token || session.arm!==arm || session.scenario!==scenario || session.stimuli_version!==v.stimuli_version) return json({error:'Assignment or stimulus version changed. Contact the researcher.'},409);
         return json({...v,session_token:session.token,saved_choice:session.choice_json?JSON.parse(session.choice_json):null,...(preview?{content_source:'A'}:{})});
       }
       if (['/api/event','/api/choice'].includes(url.pathname) && request.method==='POST') {
@@ -26,8 +30,10 @@ export function makeWorker(recs) {
         if (raw.length>20000) return json({error:'Request too large'},413);
         let body; try { body=JSON.parse(raw); } catch { return json({error:'Invalid JSON'},400); }
         if (!body || typeof body!=='object' || !validID(body.rid) || typeof body.session_token!=='string') return json({error:'Invalid session'},400);
+        const verified=await verifiedSession(request,env,recs,body.rid);
+        if (!verified) return json({error:'A verified Qualtrics session is required'},403);
         const session=await env.DB.prepare('SELECT * FROM study_assignments WHERE study_id=?1 AND rid=?2').bind(STUDY_ID,body.rid).first();
-        if (!session || session.token!==body.session_token) return json({error:'Unknown session'},403);
+        if (!session || session.token!==body.session_token || session.token!==verified.token) return json({error:'Unknown session'},403);
         if (session.stimuli_version!==recs.stimuli_version) return json({error:'Stimulus version changed'},409);
         if (url.pathname==='/api/event') {
           if (!Array.isArray(body.events) || body.events.length>50) return json({error:'Invalid events'},400);

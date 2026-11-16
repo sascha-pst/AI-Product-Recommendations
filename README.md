@@ -1,3 +1,5 @@
+Verified Qualtrics session setup is required before the task can run: [configuration and reload behavior](qualtrics/VERIFIED_SESSIONS.md).
+
 # Study v2: AI recommendation disclosure
 
 The active repair uses two conditions with identical Engine A content: **Recommended** vs **Recommended by AI**. See [repair and installation notes](REPAIR_NOTES.md) and [updated survey flow](qualtrics/SURVEY_FLOW.md). Main-study access is closed until verified AI provenance. The old six-arm description below is historical and must not be used to configure this study.

@@ -3,6 +3,8 @@
 // back to Qualtrics (postMessage when framed, redirect when ?return= is set).
 
 const params = new URLSearchParams(location.search);
+const launchToken = new URLSearchParams(location.hash.slice(1)).get("launch_token");
+const authHeaders = () => ({authorization: `Bearer ${launchToken}`});
 const PREVIEW = params.get("preview") === "1";
 const LOCAL = window.__PREVIEW__; // set only in the single-file preview build
 const startedAt = performance.now();
@@ -29,7 +31,7 @@ async function loadView(overrides = {}) {
   const u = new URL("/api/recs", location.origin);
   Object.entries(q).forEach(([k, v]) => v && u.searchParams.set(k, v));
   if (PREVIEW) u.searchParams.set("preview", "1");
-  const res = await fetch(u);
+  const res = await fetch(u, {headers: authHeaders()});
   if (!res.ok) throw new Error("Could not load recommendations");
   return res.json();
 }
@@ -45,13 +47,9 @@ async function flush(useBeacon = false) {
   if (!queue.length || flushing || !view?.session_token || LOCAL) return;
   const batch = queue.splice(0, 50);
   const body = JSON.stringify({rid:view.rid, session_token:view.session_token, events:batch});
-  if (useBeacon && navigator.sendBeacon) {
-    if (!navigator.sendBeacon('/api/event', new Blob([body], {type:'application/json'}))) queue.unshift(...batch);
-    return;
-  }
   flushing = true;
   try {
-    const res = await fetch('/api/event', {method:'POST', body, headers:{'content-type':'application/json'}, keepalive:true});
+    const res = await fetch('/api/event', {method:'POST', body, headers:{...authHeaders(),'content-type':'application/json'}, keepalive:true});
     if (!res.ok) throw new Error('Event storage unavailable');
   } catch { queue.unshift(...batch); }
   finally { flushing = false; }
@@ -210,7 +208,7 @@ async function confirmChoice(pid, rank) {
   if (!error) { error=document.createElement('p'); error.id='save-error'; error.setAttribute('role','alert'); $('#app').appendChild(error); }
   error.textContent = 'Saving your choice…';
   try {
-    const res = await fetch('/api/choice', {signal:AbortSignal.timeout(15000),method:'POST', headers:{'content-type':'application/json'}, body:JSON.stringify({rid:view.rid,session_token:view.session_token,product_id:pid,time_to_choice_ms:Math.round(performance.now()-startedAt)})});
+    const res = await fetch('/api/choice', {signal:AbortSignal.timeout(15000),method:'POST', headers:{...authHeaders(),'content-type':'application/json'}, body:JSON.stringify({rid:view.rid,session_token:view.session_token,product_id:pid,time_to_choice_ms:Math.round(performance.now()-startedAt)})});
     const result=await res.json();
     if (!res.ok || !result.saved || !result.choice) throw new Error('Could not save choice');
     closeDwell(); flush();

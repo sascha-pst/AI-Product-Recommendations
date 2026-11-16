@@ -18,7 +18,7 @@ def exit_unless(qid,flowid):
       'BranchLogic':{'0':{'0':{'LogicType':'Question','QuestionID':qid,'QuestionIsInLoop':'no','ChoiceLocator':f'q://{qid}/SelectableChoice/1','Operator':'NotSelected','QuestionIDFromLocator':qid,'LeftOperand':f'q://{qid}/SelectableChoice/1','Type':'Expression'},'Type':'If'},'Type':'BooleanExpression'},
       'Flow':[{'Type':'EndSurvey','FlowID':'FL_114' if qid == 'QID7' else 'FL_115','EndingType':'Default'}]}
 flow['Flow']=[
- {'Type':'EmbeddedData','FlowID':'FL_100','EmbeddedData':[ed('study_id','ai-disclosure-v1'),ed('scenario','commute'),ed('task_completed','0')]+[ed(x) for x in ['arm','chosen_product','chosen_rank','chosen_from_recs','time_to_choice_ms','stimuli_version']]},
+ {'Type':'EmbeddedData','FlowID':'FL_100','EmbeddedData':[ed('study_id','ai-disclosure-v1'),ed('scenario','commute'),ed('task_completed','0'),ed('launch_token','')]+[ed(x) for x in ['arm','chosen_product','chosen_rank','chosen_from_recs','time_to_choice_ms','stimuli_version']]},
  block('Consent','FL_101'),exit_unless('QID7','FL_102'),block('Screener','FL_103'),exit_unless('QID8','FL_104'),
  {'Type':'BlockRandomizer','FlowID':'FL_105','SubSet':1,'EvenPresentation':True,'Flow':[
   {'Type':'EmbeddedData','FlowID':'FL_106','EmbeddedData':[ed('arm','1')]},

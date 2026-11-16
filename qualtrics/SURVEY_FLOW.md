@@ -8,12 +8,13 @@ Use AI_Recommendation_Labels_Repaired.qsf as a new pilot survey, preserving the 
 4. Randomizer: randomly present **1** element, Evenly Present Elements enabled:
    - Separate Embedded Data element: arm=1 (Recommended).
    - Separate Embedded Data element: arm=2 (Recommended by AI).
-5. Task QID19 contains embed_question.js; Next stays hidden until a server-confirmed choice message from the exact iframe, matching respondent, condition and study.
-6. Trust, usefulness and confidence.
-7. Open-ended choice explanation.
-8. Disclosure and attention checks.
-9. Background measures, including post-task AI attitudes.
-10. Pilot debrief describing fictional stimuli and the offline rubric.
+5. Add the authenticated server-side launch Web Service described in [verified session setup](VERIFIED_SESSIONS.md) after the randomizer and before the task. Map its response to `launch_token`. The imported QSF fails closed until this account-specific step is configured.
+6. Task QID19 contains embed_question.js; Next stays hidden until a server-confirmed choice message from the exact iframe, matching respondent, condition and study.
+7. Trust, usefulness and confidence.
+8. Open-ended choice explanation.
+9. Disclosure and attention checks.
+10. Background measures, including post-task AI attitudes.
+11. Pilot debrief describing fictional stimuli and the offline rubric.
 
 Both groups receive exactly the same Engine A content for commute. This supersedes the prior six-arm instructions. Do not run the repaired survey against the old deployment.
 
@@ -21,7 +22,7 @@ Both groups receive exactly the same Engine A content for commute. This supersed
 
 - Apply schema.sql to the staging D1 binding and deploy the repaired Worker to staging.
 - Set BASE in QID19 JavaScript to the exact staging Worker URL returned by deployment. The existing URL in the file is a configuration starting point, not confirmation of a repaired live deployment.
-- Keep PILOT=true in QID19, ALLOW_PREVIEW=true on staging, STUDY_OPEN=false. Prototype access is allowed only with preview=1 on that staging deployment.
+- Use `preview: true` in the authenticated Web Service body, ALLOW_PREVIEW=true on staging, and STUDY_OPEN=false. A query parameter alone cannot authorize pilot access.
 - Confirm custom JavaScript is available for the Qualtrics account; after QSF import verify QID19 retained its JavaScript and both end-survey branches appear.
 - Preview two distinct respondents in different arms. Verify wording is the only stimulus difference and Next is unavailable before confirming a choice.
 - Verify refreshing keeps the assignment and saved choice; changing arm in the URL produces an error.
@@ -32,7 +33,7 @@ Both groups receive exactly the same Engine A content for commute. This supersed
 
 ## Main-study release
 
-Generate genuine AI ratings using the existing Claude pipeline, then build_recs.py --engine-a claude. Review/freeze stimuli, update the debrief to the actual verified provenance, set PILOT=false, update BASE, and set ALLOW_PREVIEW=false on production. Only after approval and a separate pilot should STUDY_OPEN=true be set. Fictional stimuli require explicit protocol approval; ALLOW_SAMPLE_DATA=false blocks them by default. Changing versions after first assignment returns 409, rather than silently changing a respondent's stimuli.
+Generate genuine AI ratings using the existing Claude pipeline, then build_recs.py --engine-a claude. Review/freeze stimuli, update the debrief to the actual verified provenance, set `preview: false` in the launch Web Service, update BASE, and set ALLOW_PREVIEW=false on production. Only after approval and a separate pilot should STUDY_OPEN=true be set. Fictional stimuli require explicit protocol approval; ALLOW_SAMPLE_DATA=false blocks them by default. Changing versions after first assignment returns 409, rather than silently changing a respondent's stimuli.
 
 ## Data export
 
