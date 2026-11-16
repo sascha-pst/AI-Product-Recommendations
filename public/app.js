@@ -18,8 +18,8 @@ const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&
 async function loadView(overrides = {}) {
   const q = {
     rid: params.get("rid") || (LOCAL ? "preview-" + Math.random().toString(36).slice(2, 8) : ""),
-    arm: params.get("arm") || "",
-    scenario: params.get("scenario") || "",
+    arm: params.get("arm") || (LOCAL ? "1" : ""),
+    scenario: params.get("scenario") || (LOCAL ? "commute" : ""),
     ...overrides,
   };
   if (LOCAL) {
@@ -40,13 +40,21 @@ function log(type, extra = {}) {
   queue.push(e);
   if (PREVIEW) renderLog(e);
 }
-function flush(useBeacon = false) {
-  if (!queue.length) return;
+let flushing = false;
+async function flush(useBeacon = false) {
+  if (!queue.length || flushing || !view?.session_token || LOCAL) return;
   const batch = queue.splice(0, 50);
-  if (LOCAL) return; // preview build: nothing to send to
-  const body = JSON.stringify(batch);
-  if (useBeacon && navigator.sendBeacon) navigator.sendBeacon("/api/event", new Blob([body], { type: "application/json" }));
-  else fetch("/api/event", { method: "POST", body, headers: { "content-type": "application/json" }, keepalive: true }).catch(() => {});
+  const body = JSON.stringify({rid:view.rid, session_token:view.session_token, events:batch});
+  if (useBeacon && navigator.sendBeacon) {
+    if (!navigator.sendBeacon('/api/event', new Blob([body], {type:'application/json'}))) queue.unshift(...batch);
+    return;
+  }
+  flushing = true;
+  try {
+    const res = await fetch('/api/event', {method:'POST', body, headers:{'content-type':'application/json'}, keepalive:true});
+    if (!res.ok) throw new Error('Event storage unavailable');
+  } catch { queue.unshift(...batch); }
+  finally { flushing = false; }
 }
 setInterval(flush, 3000);
 
@@ -84,8 +92,8 @@ const ICONS = {
 
 function labelBadge() {
   if (!view.label_text) return "";
-  const icons = view.label_key === "both" ? ICONS.human + ICONS.ai : ICONS[view.label_key];
-  return `<span class="source-badge">${icons}<span>${esc(view.label_text)}</span></span>`;
+  // No condition-specific icon: the label text is the only visual manipulation.
+  return `<span class="source-badge"><span>${esc(view.label_text)}</span></span>`;
 }
 
 function budIcon(color) {
@@ -175,34 +183,50 @@ function openConfirm(pid, rank) {
   dlg.showModal();
 }
 
-function confirmChoice(pid, rank) {
-  const ms = Math.round(performance.now() - startedAt);
-  log("choose_confirm", { product_id: pid, value: rank });
-  closeDwell();
-  flush(true);
-  const msg = { source: "rec-engine", type: "choice", rid: view.rid, product_id: pid, rank, from_recs: rank > 0, time_to_choice_ms: ms };
-  if (window.parent !== window) window.parent.postMessage(msg, "*");
-
-  const ret = params.get("return");
-  $("#app").innerHTML = `<section class="done"><h1>Thanks, your choice is saved.</h1>
-    <p>${ret ? "Taking you back to the survey…" : "Continue with the survey below."}</p></section>`;
-  if (ret) {
-    try {
-      const u = new URL(ret);
-      if (u.protocol === "https:" && /(^|\.)qualtrics\.com$/.test(u.hostname)) {
-        Object.entries({ choice: pid, rank, from_recs: rank > 0 ? 1 : 0, ttc: ms }).forEach(([k, v]) => u.searchParams.set(k, v));
-        setTimeout(() => location.assign(u), 600);
-      }
-    } catch {}
+let savingChoice = false;
+function notifySurvey(msg) {
+  if (window.parent === window || LOCAL) return;
+  try {
+    const origin = new URL(params.get('parent_origin')).origin;
+    if (new URL(origin).protocol === 'https:' && /(^|\.)qualtrics\.com$/.test(new URL(origin).hostname)) {
+      window.parent.postMessage(msg, origin);
+    }
+  } catch { /* No validated survey parent: do not send participant data. */ }
+}
+function showSaved(msg) {
+  observer.disconnect();
+  $('#app').innerHTML = `<section class="done"><h1>Your choice is saved.</h1><p>Return to the survey and select Next to continue.</p></section>`;
+  notifySurvey(msg);
+}
+async function confirmChoice(pid, rank) {
+  if (savingChoice) return;
+  if (LOCAL) {
+    $('#app').innerHTML = '<p>Preview only: no choice was saved or sent to Qualtrics.</p>';
+    return;
   }
+  savingChoice = true;
+  document.querySelectorAll('button.choose').forEach(b => b.disabled = true);
+  let error = $('#save-error');
+  if (!error) { error=document.createElement('p'); error.id='save-error'; error.setAttribute('role','alert'); $('#app').appendChild(error); }
+  error.textContent = 'Saving your choice…';
+  try {
+    const res = await fetch('/api/choice', {signal:AbortSignal.timeout(15000),method:'POST', headers:{'content-type':'application/json'}, body:JSON.stringify({rid:view.rid,session_token:view.session_token,product_id:pid,time_to_choice_ms:Math.round(performance.now()-startedAt)})});
+    const result=await res.json();
+    if (!res.ok || !result.saved || !result.choice) throw new Error('Could not save choice');
+    closeDwell(); flush();
+    showSaved(result.choice);
+  } catch {
+    error.textContent = 'Your choice could not be confirmed. Please try confirming it again. If the problem continues, contact the researcher.';
+    document.querySelectorAll('button.choose').forEach(b => b.disabled = false);
+  } finally { savingChoice = false; }
 }
 
 // ---------------------------------------------------------------- preview tools
 function renderPreviewBar() {
   const bar = $("#preview-bar");
   bar.hidden = false;
-  const arms = { 1: "H · human label", 2: "H · AI label", 3: "A · human label", 4: "A · AI label", 5: "Hybrid · both", 6: "Control · no label" };
-  const scen = { commute: "Commute", gym: "Workouts", calls: "Work calls" };
+  const arms = { 1: "Recommended", 2: "Recommended by AI" };
+  const scen = { commute: "Commute" };
   bar.innerHTML = `
     <strong>Researcher preview</strong>
     <label>Arm <select id="pv-arm">${Object.entries(arms).map(([k, v]) => `<option value="${k}" ${k === view.arm ? "selected" : ""}>${k} · ${v}</option>`).join("")}</select></label>
@@ -210,7 +234,7 @@ function renderPreviewBar() {
     <span class="pv-truth">Content actually from: <b>${{ H: "customer reviews (Engine H)", A: "AI reviewer (Engine A)", HY: "hybrid" }[view.content_source] || "?"}</b></span>
     <details class="pv-log"><summary>Event log</summary><ol id="pv-events"></ol></details>`;
   const reload = async () => {
-    view = await loadView({ rid: view.rid, arm: $("#pv-arm").value, scenario: $("#pv-sc").value });
+    view = await loadView({ rid: "preview-" + crypto.randomUUID(), arm: $("#pv-arm").value, scenario: $("#pv-sc").value });
     render(); renderPreviewBar(); log("page_view");
   };
   $("#pv-arm").onchange = reload;
@@ -228,11 +252,12 @@ function renderLog(e) {
 (async () => {
   try {
     view = await loadView();
+    if (view.saved_choice) { showSaved(view.saved_choice); return; }
     render();
     if (PREVIEW && view.content_source) renderPreviewBar();
     log("page_view");
     flush();
   } catch (err) {
-    $("#app").innerHTML = `<p class="error">Something went wrong loading this page. Please return to the survey and continue.</p>`;
+    $("#app").innerHTML = `<p class="error">Something went wrong loading this page. Please reload the task or contact the researcher. Your choice has not been recorded.</p>`;
   }
 })();

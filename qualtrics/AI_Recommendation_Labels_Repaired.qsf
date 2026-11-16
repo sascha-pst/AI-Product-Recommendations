@@ -1,0 +1,1303 @@
+{
+  "SurveyEntry": {
+    "SurveyID": "SV_8c5o5CzbDONoxQW",
+    "SurveyName": "AI Recommendation Labels - Two-Group Pilot (Repaired)",
+    "SurveyDescription": null,
+    "SurveyOwnerID": "UR_6S6bipQ70vllWyW",
+    "SurveyBrandID": "berkeley",
+    "DivisionID": "DV_bE4GVCKSvJJ2JYF",
+    "SurveyLanguage": "EN",
+    "SurveyActiveResponseSet": "RS_9MIWsGCmtIfCEiG",
+    "SurveyStatus": "Inactive",
+    "SurveyStartDate": "0000-00-00 00:00:00",
+    "SurveyExpirationDate": "0000-00-00 00:00:00",
+    "SurveyCreationDate": "2026-11-09 07:41:14",
+    "CreatorID": "UR_6S6bipQ70vllWyW",
+    "LastModified": "2026-11-15 13:12:13",
+    "LastAccessed": "0000-00-00 00:00:00",
+    "LastActivated": "0000-00-00 00:00:00",
+    "Deleted": null
+  },
+  "SurveyElements": [
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "BL",
+      "PrimaryAttribute": "Survey Blocks",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "1": {
+          "Type": "Trash",
+          "Description": "Trash / Unused Questions",
+          "ID": "BL_54FhGSSHnVAV6ce",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID23"
+            }
+          ]
+        },
+        "2": {
+          "Type": "Standard",
+          "SubType": "",
+          "Description": "Consent",
+          "ID": "BL_eb2qIXdsp66vR3M",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID7"
+            }
+          ]
+        },
+        "3": {
+          "Type": "Standard",
+          "SubType": "",
+          "Description": "Screener",
+          "ID": "BL_by0qCw4ximB3r7g",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID8"
+            }
+          ]
+        },
+        "4": {
+          "Type": "Standard",
+          "SubType": "",
+          "Description": "Covariates",
+          "ID": "BL_bIxfv9z9cX8wZgO",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID14"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID16"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID17"
+            }
+          ]
+        },
+        "5": {
+          "Type": "Standard",
+          "SubType": "",
+          "Description": "Recommendations task",
+          "ID": "BL_23m0tU6dw20BbCK",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID19"
+            }
+          ]
+        },
+        "6": {
+          "Type": "Standard",
+          "SubType": "",
+          "Description": "Outcomes",
+          "ID": "BL_0dKbEYhUqxqs6mq",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID20"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID21"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID22"
+            }
+          ]
+        },
+        "7": {
+          "Type": "Standard",
+          "SubType": "",
+          "Description": "Checks",
+          "ID": "BL_8B3sRMbzgeMGvrM",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID24"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID25"
+            }
+          ]
+        },
+        "8": {
+          "Type": "Standard",
+          "SubType": "",
+          "Description": "Choice explaination",
+          "ID": "BL_0vKUxZH9noE0smy",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID26"
+            }
+          ]
+        },
+        "9": {
+          "Type": "Standard",
+          "SubType": "",
+          "Description": "Debrief",
+          "ID": "BL_2rf5fglzXMyVDH8",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID27"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "FL",
+      "PrimaryAttribute": "Survey Flow",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "Type": "Root",
+        "FlowID": "FL_1",
+        "Flow": [
+          {
+            "Type": "EmbeddedData",
+            "FlowID": "FL_100",
+            "EmbeddedData": [
+              {
+                "Description": "study_id",
+                "Field": "study_id",
+                "Type": "Custom",
+                "VariableType": "String",
+                "DataVisibility": [],
+                "AnalyzeText": false,
+                "Value": "ai-disclosure-v1"
+              },
+              {
+                "Description": "scenario",
+                "Field": "scenario",
+                "Type": "Custom",
+                "VariableType": "String",
+                "DataVisibility": [],
+                "AnalyzeText": false,
+                "Value": "commute"
+              },
+              {
+                "Description": "task_completed",
+                "Field": "task_completed",
+                "Type": "Custom",
+                "VariableType": "String",
+                "DataVisibility": [],
+                "AnalyzeText": false,
+                "Value": "0"
+              },
+              {
+                "Description": "arm",
+                "Field": "arm",
+                "Type": "Recipient",
+                "VariableType": "String",
+                "DataVisibility": [],
+                "AnalyzeText": false
+              },
+              {
+                "Description": "chosen_product",
+                "Field": "chosen_product",
+                "Type": "Recipient",
+                "VariableType": "String",
+                "DataVisibility": [],
+                "AnalyzeText": false
+              },
+              {
+                "Description": "chosen_rank",
+                "Field": "chosen_rank",
+                "Type": "Recipient",
+                "VariableType": "String",
+                "DataVisibility": [],
+                "AnalyzeText": false
+              },
+              {
+                "Description": "chosen_from_recs",
+                "Field": "chosen_from_recs",
+                "Type": "Recipient",
+                "VariableType": "String",
+                "DataVisibility": [],
+                "AnalyzeText": false
+              },
+              {
+                "Description": "time_to_choice_ms",
+                "Field": "time_to_choice_ms",
+                "Type": "Recipient",
+                "VariableType": "String",
+                "DataVisibility": [],
+                "AnalyzeText": false
+              },
+              {
+                "Description": "stimuli_version",
+                "Field": "stimuli_version",
+                "Type": "Recipient",
+                "VariableType": "String",
+                "DataVisibility": [],
+                "AnalyzeText": false
+              }
+            ]
+          },
+          {
+            "Type": "Standard",
+            "ID": "BL_eb2qIXdsp66vR3M",
+            "FlowID": "FL_101",
+            "Autofill": []
+          },
+          {
+            "Type": "Branch",
+            "FlowID": "FL_102",
+            "Description": "End unless affirmative consent / eligibility",
+            "BranchLogic": {
+              "0": {
+                "0": {
+                  "LogicType": "Question",
+                  "QuestionID": "QID7",
+                  "QuestionIsInLoop": "no",
+                  "ChoiceLocator": "q://QID7/SelectableChoice/1",
+                  "Operator": "NotSelected",
+                  "QuestionIDFromLocator": "QID7",
+                  "LeftOperand": "q://QID7/SelectableChoice/1",
+                  "Type": "Expression"
+                },
+                "Type": "If"
+              },
+              "Type": "BooleanExpression"
+            },
+            "Flow": [
+              {
+                "Type": "EndSurvey",
+                "FlowID": "FL_114",
+                "EndingType": "Default"
+              }
+            ]
+          },
+          {
+            "Type": "Standard",
+            "ID": "BL_by0qCw4ximB3r7g",
+            "FlowID": "FL_103",
+            "Autofill": []
+          },
+          {
+            "Type": "Branch",
+            "FlowID": "FL_104",
+            "Description": "End unless affirmative consent / eligibility",
+            "BranchLogic": {
+              "0": {
+                "0": {
+                  "LogicType": "Question",
+                  "QuestionID": "QID8",
+                  "QuestionIsInLoop": "no",
+                  "ChoiceLocator": "q://QID8/SelectableChoice/1",
+                  "Operator": "NotSelected",
+                  "QuestionIDFromLocator": "QID8",
+                  "LeftOperand": "q://QID8/SelectableChoice/1",
+                  "Type": "Expression"
+                },
+                "Type": "If"
+              },
+              "Type": "BooleanExpression"
+            },
+            "Flow": [
+              {
+                "Type": "EndSurvey",
+                "FlowID": "FL_115",
+                "EndingType": "Default"
+              }
+            ]
+          },
+          {
+            "Type": "BlockRandomizer",
+            "FlowID": "FL_105",
+            "SubSet": 1,
+            "EvenPresentation": true,
+            "Flow": [
+              {
+                "Type": "EmbeddedData",
+                "FlowID": "FL_106",
+                "EmbeddedData": [
+                  {
+                    "Description": "arm",
+                    "Field": "arm",
+                    "Type": "Custom",
+                    "VariableType": "String",
+                    "DataVisibility": [],
+                    "AnalyzeText": false,
+                    "Value": "1"
+                  }
+                ]
+              },
+              {
+                "Type": "EmbeddedData",
+                "FlowID": "FL_107",
+                "EmbeddedData": [
+                  {
+                    "Description": "arm",
+                    "Field": "arm",
+                    "Type": "Custom",
+                    "VariableType": "String",
+                    "DataVisibility": [],
+                    "AnalyzeText": false,
+                    "Value": "2"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Type": "Standard",
+            "ID": "BL_23m0tU6dw20BbCK",
+            "FlowID": "FL_108",
+            "Autofill": []
+          },
+          {
+            "Type": "Standard",
+            "ID": "BL_0dKbEYhUqxqs6mq",
+            "FlowID": "FL_109",
+            "Autofill": []
+          },
+          {
+            "Type": "Standard",
+            "ID": "BL_0vKUxZH9noE0smy",
+            "FlowID": "FL_110",
+            "Autofill": []
+          },
+          {
+            "Type": "Standard",
+            "ID": "BL_8B3sRMbzgeMGvrM",
+            "FlowID": "FL_111",
+            "Autofill": []
+          },
+          {
+            "Type": "Standard",
+            "ID": "BL_bIxfv9z9cX8wZgO",
+            "FlowID": "FL_112",
+            "Autofill": []
+          },
+          {
+            "Type": "Standard",
+            "ID": "BL_2rf5fglzXMyVDH8",
+            "FlowID": "FL_113",
+            "Autofill": []
+          }
+        ],
+        "Properties": {
+          "Count": 116
+        }
+      }
+    },
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "PL",
+      "PrimaryAttribute": "Preview Link",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "PreviewType": "Brand",
+        "PreviewID": "8b08f2ea-cce4-481c-8a61-e7d3bbaa3746"
+      }
+    },
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "PROJ",
+      "PrimaryAttribute": "CORE",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": "1.1.0",
+      "Payload": {
+        "ProjectCategory": "CORE",
+        "SchemaVersion": "1.1.0"
+      }
+    },
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "QC",
+      "PrimaryAttribute": "Survey Question Count",
+      "SecondaryAttribute": "14",
+      "TertiaryAttribute": null,
+      "Payload": null
+    },
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "RS",
+      "PrimaryAttribute": "RS_9MIWsGCmtIfCEiG",
+      "SecondaryAttribute": "Default Response Set",
+      "TertiaryAttribute": null,
+      "Payload": null
+    },
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "SCO",
+      "PrimaryAttribute": "Scoring",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "ScoringCategories": [],
+        "ScoringCategoryGroups": [],
+        "ScoringSummaryCategory": null,
+        "ScoringSummaryAfterQuestions": 0,
+        "ScoringSummaryAfterSurvey": 0,
+        "DefaultScoringCategory": null,
+        "AutoScoringCategory": null
+      }
+    },
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "SO",
+      "PrimaryAttribute": "Survey Options",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "BackButton": "false",
+        "SaveAndContinue": "true",
+        "SurveyProtection": "PublicSurvey",
+        "BallotBoxStuffingPrevention": "false",
+        "NoIndex": "Yes",
+        "SecureResponseFiles": "true",
+        "SurveyExpiration": "None",
+        "SurveyTermination": "DefaultMessage",
+        "Header": "",
+        "Footer": "",
+        "ProgressBarDisplay": "None",
+        "PartialData": "+1 week",
+        "ValidationMessage": "",
+        "PreviousButton": "",
+        "NextButton": "",
+        "SurveyTitle": "Qualtrics Survey | Qualtrics Experience Management",
+        "SkinLibrary": "berkeley",
+        "SkinType": "component",
+        "Skin": {
+          "brandingId": "7220639767",
+          "templateId": "*simple",
+          "overrides": null
+        },
+        "NewScoring": 1,
+        "SurveyMetaDescription": "The most powerful, simple and trusted way to gather experience data. Start your journey to experience management and try a free account today."
+      }
+    },
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID14",
+      "SecondaryAttribute": "How much do you agree or disagree with each statement?",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "How much do you agree or disagree with each statement?",
+        "DefaultChoices": false,
+        "DataExportTag": "ai_attitudes_post",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText",
+          "TextPosition": "inline",
+          "ChoiceColumnWidth": 25,
+          "RepeatHeaders": "none",
+          "WhiteSpace": "OFF",
+          "MobileFirst": true,
+          "Autoscale": {
+            "XScale": {
+              "Name": "agreeDisagree",
+              "Type": "likert",
+              "Reverse": false
+            }
+          }
+        },
+        "QuestionDescription": "How much do you agree or disagree with each statement?",
+        "Choices": {
+          "1": {
+            "Display": "I generally have a positive view of artificial intelligence (AI)."
+          },
+          "2": {
+            "Display": "I feel comfortable using tools powered by AI."
+          },
+          "3": {
+            "Display": "I expect AI to be useful in my everyday life."
+          }
+        },
+        "ChoiceOrder": [
+          1,
+          2,
+          3
+        ],
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "OFF",
+            "Type": "None"
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "NextChoiceId": 4,
+        "NextAnswerId": 8,
+        "Answers": {
+          "1": {
+            "Display": "Strongly disagree"
+          },
+          "2": {
+            "Display": "Disagree"
+          },
+          "3": {
+            "Display": "Somewhat disagree"
+          },
+          "4": {
+            "Display": "Neither agree nor disagree"
+          },
+          "5": {
+            "Display": "Somewhat agree"
+          },
+          "6": {
+            "Display": "Agree"
+          },
+          "7": {
+            "Display": "Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "ChoiceDataExportTags": false,
+        "QuestionID": "QID14"
+      }
+    },
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID16",
+      "SecondaryAttribute": "How knowledgeable are you about wireless earbuds?",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "How knowledgeable are you about wireless earbuds?",
+        "DataExportTag": "category_knowledge",
+        "QuestionType": "MC",
+        "Selector": "SAVR",
+        "SubSelector": "TX",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText",
+          "Autoscale": {
+            "YScale": {
+              "Name": "knowledgeable",
+              "Type": "likert",
+              "Reverse": false
+            }
+          }
+        },
+        "QuestionDescription": "How knowledgeable are you about wireless earbuds?",
+        "Choices": {
+          "1": {
+            "Display": "Not knowledgeable at all"
+          },
+          "2": {
+            "Display": "Slightly knowledgeable"
+          },
+          "3": {
+            "Display": "Moderately knowledgeable"
+          },
+          "4": {
+            "Display": "Very knowledgeable"
+          },
+          "5": {
+            "Display": "Extremely knowledgeable"
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "OFF",
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "NextChoiceId": 6,
+        "NextAnswerId": 1,
+        "QuestionID": "QID16"
+      }
+    },
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID17",
+      "SecondaryAttribute": "When did you most recently purchase a pair of wireless earbuds for yourself?",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "When did you most recently purchase a pair of wireless earbuds for yourself?",
+        "DefaultChoices": false,
+        "DataExportTag": "recent_purchase",
+        "QuestionType": "MC",
+        "Selector": "SAVR",
+        "SubSelector": "TX",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "QuestionDescription": "When did you most recently purchase a pair of wireless earbuds for yourself?",
+        "Choices": {
+          "1": {
+            "Display": "Within the past 3 months"
+          },
+          "2": {
+            "Display": "More than 3 months ago, but within the past 6 months"
+          },
+          "3": {
+            "Display": "More than 6 months ago, but within the past 12 months"
+          },
+          "4": {
+            "Display": "More than 12 months ago"
+          },
+          "5": {
+            "Display": "I have never purchased wireless earbuds for myself"
+          },
+          "6": {
+            "Display": "I don't remember"
+          }
+        },
+        "ChoiceOrder": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "OFF",
+            "Type": "None"
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "NextChoiceId": 7,
+        "NextAnswerId": 1,
+        "QuestionID": "QID17"
+      }
+    },
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID19",
+      "SecondaryAttribute": "Imagine you are shopping for wireless earbuds for the situation described below. Review the recom...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Imagine you are shopping for wireless earbuds for the situation shown below. Review the recommendations and other available products, then confirm the pair you would be most likely to purchase. No actual purchase is required. After your choice is saved, select Next.",
+        "DefaultChoices": false,
+        "DataExportTag": "shopping_task",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "QuestionDescription": "Shopping task: confirm a product choice before continuing.",
+        "ChoiceOrder": [],
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "NextChoiceId": 9,
+        "NextAnswerId": 1,
+        "QuestionID": "QID19",
+        "QuestionJS": "/* Study v2. Installed in QID19 by the repair script. Next requires a server-saved choice. */\n(function () {\n  var cleanup = function () {};\n  Qualtrics.SurveyEngine.addOnReady(function () {\n    var q = this;\n    var BASE = 'https://rec-engine.sashaschaps.workers.dev';\n    var PILOT = true; // Staging only. Set false for the verified main study.\n    var rid = '${e://Field/ResponseID}';\n    var arm = '${e://Field/arm}';\n    var scenario = '${e://Field/scenario}';\n    var finished = false;\n    q.hideNextButton();\n    var status = document.createElement('p');\n    status.setAttribute('role', 'status');\n    status.textContent = 'Load the shopping task below and confirm your choice to continue.';\n    q.getQuestionContainer().appendChild(status);\n    if (!/^[A-Za-z0-9_.:-]{1,128}$/.test(rid) || !/^[12]$/.test(arm) || scenario !== 'commute') {\n      status.textContent = 'The survey assignment is missing. Please contact the researcher.';\n      return;\n    }\n    var frame = document.createElement('iframe');\n    var src = new URL(BASE + '/');\n    src.searchParams.set('rid', rid);\n    src.searchParams.set('arm', arm);\n    src.searchParams.set('scenario', scenario);\n    src.searchParams.set('parent_origin', window.location.origin);\n    if (PILOT) src.searchParams.set('preview', '1');\n    frame.title = 'Product recommendation shopping task';\n    frame.style.cssText = 'width:100%;height:1200px;border:0;border-radius:12px;background:#f6f4ef';\n    var listener = function (event) {\n      if (finished || event.origin !== BASE || event.source !== frame.contentWindow) return;\n      var d = event.data || {};\n      if (d.source !== 'rec-engine' || d.type !== 'choice' || d.study_id !== 'ai-disclosure-v1' || d.rid !== rid || d.arm !== arm || d.scenario !== scenario) return;\n      if (typeof d.product_id !== 'string' || !d.product_id || !Number.isInteger(d.rank) || d.rank < 0 || d.rank > 3 || d.from_recs !== (d.rank > 0) || !Number.isFinite(d.time_to_choice_ms) || d.time_to_choice_ms < 0 || typeof d.stimuli_version !== 'string') return;\n      Qualtrics.SurveyEngine.setEmbeddedData('chosen_product', d.product_id);\n      Qualtrics.SurveyEngine.setEmbeddedData('chosen_rank', d.rank);\n      Qualtrics.SurveyEngine.setEmbeddedData('chosen_from_recs', d.from_recs ? 1 : 0);\n      Qualtrics.SurveyEngine.setEmbeddedData('time_to_choice_ms', d.time_to_choice_ms);\n      Qualtrics.SurveyEngine.setEmbeddedData('stimuli_version', d.stimuli_version);\n      Qualtrics.SurveyEngine.setEmbeddedData('task_completed', '1');\n      finished = true;\n      status.textContent = 'Your choice has been saved. Select Next to continue.';\n      q.showNextButton();\n    };\n    window.addEventListener('message', listener);\n    frame.src = src.toString();\n    q.getQuestionContainer().appendChild(frame);\n    cleanup = function () { window.removeEventListener('message', listener); frame.remove(); };\n  });\n  Qualtrics.SurveyEngine.addOnUnload(function () { cleanup(); });\n})();\n"
+      }
+    },
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID20",
+      "SecondaryAttribute": "Thinking about the recommendations you just viewed, how much do you agree or disagree with each s...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Thinking about the recommendations you just viewed, how much do you agree or disagree with each statement?",
+        "DefaultChoices": false,
+        "DataExportTag": "trust",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText",
+          "TextPosition": "inline",
+          "ChoiceColumnWidth": 25,
+          "RepeatHeaders": "none",
+          "WhiteSpace": "OFF",
+          "MobileFirst": true
+        },
+        "QuestionDescription": "Thinking about the recommendations you just viewed, how much do you agree or disagree with each s...",
+        "Choices": {
+          "1": {
+            "Display": "I trust these recommendations."
+          },
+          "2": {
+            "Display": "I consider these recommendations reliable."
+          },
+          "3": {
+            "Display": "I feel I can depend on these recommendations."
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3"
+        ],
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "OFF",
+            "Type": "None"
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "NextChoiceId": 4,
+        "NextAnswerId": 8,
+        "Answers": {
+          "1": {
+            "Display": "Strongly disagree"
+          },
+          "2": {
+            "Display": "Disagree"
+          },
+          "3": {
+            "Display": "Somewhat disagree"
+          },
+          "4": {
+            "Display": "Neither agree nor disagree"
+          },
+          "5": {
+            "Display": "Somewhat agree"
+          },
+          "6": {
+            "Display": "Agree"
+          },
+          "7": {
+            "Display": "Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "ChoiceDataExportTags": false,
+        "QuestionID": "QID20"
+      }
+    },
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID21",
+      "SecondaryAttribute": "How much do you agree or disagree with each statement?",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "How much do you agree or disagree with each statement?",
+        "DefaultChoices": false,
+        "DataExportTag": "usefulness",
+        "QuestionType": "Matrix",
+        "Selector": "Likert",
+        "SubSelector": "SingleAnswer",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText",
+          "TextPosition": "inline",
+          "ChoiceColumnWidth": 25,
+          "RepeatHeaders": "none",
+          "WhiteSpace": "OFF",
+          "MobileFirst": true
+        },
+        "QuestionDescription": "How much do you agree or disagree with each statement?",
+        "Choices": {
+          "1": {
+            "Display": "These recommendations help me evaluate the available earbuds."
+          },
+          "2": {
+            "Display": "These recommendations were useful for making my choice."
+          },
+          "3": {
+            "Display": "These recommendations made it easier to decide which earbuds to choose."
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3"
+        ],
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "OFF",
+            "Type": "None"
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "NextChoiceId": 4,
+        "NextAnswerId": 8,
+        "Answers": {
+          "1": {
+            "Display": "Strongly disagree"
+          },
+          "2": {
+            "Display": "Disagree"
+          },
+          "3": {
+            "Display": "Somewhat disagree"
+          },
+          "4": {
+            "Display": "Neither agree nor disagree"
+          },
+          "5": {
+            "Display": "Somewhat agree"
+          },
+          "6": {
+            "Display": "Agree"
+          },
+          "7": {
+            "Display": "Strongly agree"
+          }
+        },
+        "AnswerOrder": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "ChoiceDataExportTags": false,
+        "QuestionID": "QID21"
+      }
+    },
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID22",
+      "SecondaryAttribute": "How confident are you that the earbuds you chose would meet the needs described in the shopping s...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "How confident are you that the earbuds you chose would meet the needs described in the shopping situation?",
+        "DefaultChoices": false,
+        "DataExportTag": "confidence",
+        "QuestionType": "MC",
+        "Selector": "SAVR",
+        "SubSelector": "TX",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "QuestionDescription": "How confident are you that the earbuds you chose would meet the needs described in the shopping s...",
+        "Choices": {
+          "1": {
+            "Display": "Not at all confident"
+          },
+          "2": {
+            "Display": "Slightly confident"
+          },
+          "3": {
+            "Display": "Moderately confident"
+          },
+          "4": {
+            "Display": "Very confident"
+          },
+          "5": {
+            "Display": "Extremely confident"
+          }
+        },
+        "ChoiceOrder": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "OFF",
+            "Type": "None"
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "NextChoiceId": 6,
+        "NextAnswerId": 1,
+        "QuestionID": "QID22"
+      }
+    },
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID23",
+      "SecondaryAttribute": "What is the maximum amount, in US dollars, you would be willing to pay for the earbuds you chose?...",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "What is the maximum amount, in US dollars, you would be willing to pay for the earbuds you chose?\n<br><br>Enter an amount of 0 or greater. Enter 0 if you would not be willing to pay for them.",
+        "DefaultChoices": false,
+        "DataExportTag": "wtp_unused",
+        "QuestionType": "TE",
+        "Selector": "ML",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "QuestionDescription": "What is the maximum amount, in US dollars, you would be willing to pay for the earbuds you chose?...",
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "OFF",
+            "Type": "None"
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "NextChoiceId": 4,
+        "NextAnswerId": 1,
+        "SearchSource": {
+          "AllowFreeResponse": "false"
+        },
+        "QuestionID": "QID23"
+      }
+    },
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID24",
+      "SecondaryAttribute": "What source, if any, did the recommendation page say the recommendations came from?",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "How were the recommendations described on the shopping page?",
+        "DefaultChoices": false,
+        "DataExportTag": "label_check",
+        "QuestionType": "MC",
+        "Selector": "SAVR",
+        "SubSelector": "TX",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "QuestionDescription": "What source, if any, did the recommendation page say the recommendations came from?",
+        "Choices": {
+          "1": {
+            "Display": "Recommended"
+          },
+          "2": {
+            "Display": "Recommended by AI"
+          },
+          "3": {
+            "Display": "Another description"
+          },
+          "4": {
+            "Display": "I don’t remember"
+          }
+        },
+        "ChoiceOrder": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "OFF",
+            "Type": "None"
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "NextChoiceId": 5,
+        "NextAnswerId": 1,
+        "QuestionID": "QID24"
+      }
+    },
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID25",
+      "SecondaryAttribute": "For this question, please select \"Somewhat agree.\"",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "For this question, please select \"Somewhat agree.\"",
+        "DefaultChoices": false,
+        "DataExportTag": "attention_check",
+        "QuestionType": "MC",
+        "Selector": "SAVR",
+        "SubSelector": "TX",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText",
+          "Autoscale": {
+            "YScale": {
+              "Name": "agreeDisagree",
+              "Type": "likert",
+              "Reverse": false
+            }
+          }
+        },
+        "QuestionDescription": "For this question, please select \"Somewhat agree.\"",
+        "Choices": {
+          "1": {
+            "Display": "Strongly disagree"
+          },
+          "2": {
+            "Display": "Somewhat disagree"
+          },
+          "3": {
+            "Display": "Neither agree nor disagree"
+          },
+          "4": {
+            "Display": "Somewhat agree"
+          },
+          "5": {
+            "Display": "Strongly agree"
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "OFF",
+            "Type": "None"
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "NextChoiceId": 6,
+        "NextAnswerId": 1,
+        "QuestionID": "QID25"
+      }
+    },
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID26",
+      "SecondaryAttribute": "What were the main reasons you chose that pair of earbuds?",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "What were the main reasons you chose that pair of earbuds?",
+        "DefaultChoices": false,
+        "DataExportTag": "choice_reason",
+        "QuestionType": "TE",
+        "Selector": "ML",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "QuestionDescription": "What were the main reasons you chose that pair of earbuds?",
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "OFF",
+            "Type": "None"
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "NextChoiceId": 4,
+        "NextAnswerId": 1,
+        "SearchSource": {
+          "AllowFreeResponse": "false"
+        },
+        "QuestionID": "QID26"
+      }
+    },
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID7",
+      "SecondaryAttribute": "Do you consent to participate in this study?",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Do you consent to participate in this study?",
+        "DefaultChoices": false,
+        "DataExportTag": "consent",
+        "QuestionType": "MC",
+        "Selector": "SAVR",
+        "SubSelector": "TX",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "QuestionDescription": "Do you consent to participate in this study?",
+        "Choices": {
+          "1": {
+            "Display": "Yes, I consent to participate."
+          },
+          "2": {
+            "Display": "No, I do not consent to participate."
+          }
+        },
+        "ChoiceOrder": [
+          1,
+          2
+        ],
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "ON",
+            "ForceResponseType": "ON",
+            "Type": "None"
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "NextChoiceId": 3,
+        "NextAnswerId": 1,
+        "QuestionID": "QID7"
+      }
+    },
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID8",
+      "SecondaryAttribute": "In the past 12 months, have you purchased earbuds or other consumer electronics online?",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "In the past 12 months, have you purchased earbuds or other consumer electronics online?<br>",
+        "DefaultChoices": false,
+        "DataExportTag": "eligible",
+        "QuestionType": "MC",
+        "Selector": "SAVR",
+        "SubSelector": "TX",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "QuestionDescription": "In the past 12 months, have you purchased earbuds or other consumer electronics online?",
+        "Choices": {
+          "1": {
+            "Display": "Yes"
+          },
+          "2": {
+            "Display": "No"
+          }
+        },
+        "ChoiceOrder": [
+          1,
+          2
+        ],
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "ON",
+            "ForceResponseType": "ON",
+            "Type": "None"
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "NextChoiceId": 3,
+        "NextAnswerId": 1,
+        "QuestionID": "QID8"
+      }
+    },
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "STAT",
+      "PrimaryAttribute": "Survey Statistics",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "MobileCompatible": true,
+        "ID": "Survey Statistics"
+      }
+    },
+    {
+      "SurveyID": "SV_8c5o5CzbDONoxQW",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID27",
+      "SecondaryAttribute": "Study debrief",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Thank you for participating. This study tests whether describing product recommendations as “Recommended by AI” changes trust and choice compared with “Recommended”. Participants were randomly assigned a label but saw the same recommendation content. This prototype pilot uses fictional products and an offline scoring rubric, rather than live AI-generated recommendations. The AI label is an experimental stimulus. Pilot responses test the survey and interface and will not be included in the main-study analysis. A main study will require verified AI recommendations and an updated debrief. No actual purchase took place.",
+        "DefaultChoices": false,
+        "DataExportTag": "debrief",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "QuestionDescription": "Study debrief",
+        "ChoiceOrder": [],
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "NextChoiceId": 9,
+        "NextAnswerId": 1,
+        "QuestionID": "QID27"
+      }
+    }
+  ]
+}
