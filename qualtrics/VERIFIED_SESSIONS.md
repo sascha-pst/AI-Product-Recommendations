@@ -48,3 +48,20 @@ Run `npm test` and a staging Worker dry run. Then test in a real Qualtrics respo
 - Swapping response ID or arm with the same credential is denied. Disabling preview invalidates pilot credentials.
 - Web Service failure or absent `launch_token` keeps Next hidden and does not show recommendations.
 - Exported ResponseID joins to `verified_study_sessions.rid` and `study_assignments.rid`. Exclude session tokens from research exports and never publish participant data.
+
+## Staging deployment and web-side verification
+
+Run from the repository root after `npm ci` and `npx wrangler login`:
+
+```sh
+export QUALTRICS_SURVEY_ID='SV_YOUR_PILOT_ID'
+# Generate once in this shell; keep the value for the Qualtrics custom header.
+export QUALTRICS_LAUNCH_SECRET="$(openssl rand -hex 32)"
+npm run deploy:staging
+export STAGING_URL='https://YOUR-STAGING-WORKER.workers.dev'
+npm run test:staging
+```
+
+The deploy command creates or reuses **rec-engine-staging**, a dedicated staging D1 database, generates an ignored `wrangler.staging.local.json` without secrets, applies the schema, deploys the staging Worker with main-study collection closed, and installs the secret through stdin. It does not change the default production Worker or database. When multiple Cloudflare accounts are available, select the intended account with `CLOUDFLARE_ACCOUNT_ID` first. Reuse the existing secret on redeployment; generating another replaces the credential and requires updating the Qualtrics header.
+
+The smoke test creates synthetic `R_staging_smoke_...` records for both arms and checks unauthorized access, credential binding, retry, reload, durable save, and completion resume. It refuses a deployment reporting an open main study. These API checks simulate the trusted survey service; they do not prove that the actual Qualtrics Web Service or iframe is configured correctly. Finish the manual survey acceptance checks above.
