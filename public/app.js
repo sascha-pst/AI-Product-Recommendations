@@ -32,7 +32,18 @@ async function loadView(overrides = {}) {
   Object.entries(q).forEach(([k, v]) => v && u.searchParams.set(k, v));
   if (PREVIEW) u.searchParams.set("preview", "1");
   const res = await fetch(u, {headers: authHeaders()});
-  if (!res.ok) throw new Error("Could not load recommendations");
+  if (!res.ok) {
+    const messages = {
+      400: 'The task assignment is incomplete or invalid. Please restart the survey preview.',
+      403: 'This task does not have a valid survey session. Please restart the survey preview. If it continues, contact the researcher.',
+      409: 'This response already has a different assignment or task version. Please start a new survey preview.',
+      503: 'The task is temporarily unavailable or its study configuration is incomplete. Please contact the researcher.',
+    };
+    const error = new Error(messages[res.status] || 'The task server could not load your recommendations. Please try again.');
+    error.taskMessage = error.message;
+    error.taskCode = `TASK_HTTP_${res.status}`;
+    throw error;
+  }
   return res.json();
 }
 
@@ -256,6 +267,8 @@ function renderLog(e) {
     log("page_view");
     flush();
   } catch (err) {
-    $("#app").innerHTML = `<p class="error">Something went wrong loading this page. Please reload the task or contact the researcher. Your choice has not been recorded.</p>`;
+    const message = err.taskMessage || 'The task could not finish loading. Please reload it or contact the researcher.';
+    const code = err.taskCode || (err instanceof TypeError ? 'TASK_NETWORK_OR_RENDER' : 'TASK_RENDER');
+    $('#app').innerHTML = `<p class="error">${esc(message)} Your choice has not been recorded.</p><p class="error">Reference: ${esc(code)}</p>`;
   }
 })();
